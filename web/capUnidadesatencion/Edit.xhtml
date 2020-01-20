@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapUnidadesatencionEditDlg" widgetVar="CapUnidadesatencionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapUnidadesatencionTitle}">
+            <h:form id="CapUnidadesatencionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capUnidadesatencionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_unidadid}" for="unidadid" />
+                        <p:inputText id="unidadid" value="#{capUnidadesatencionController.selected.unidadid}" title="#{bundle.EditCapUnidadesatencionTitle_unidadid}" required="true" requiredMessage="#{bundle.EditCapUnidadesatencionRequiredMessage_unidadid}"/>
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capUnidadesatencionController.selected.estado}" title="#{bundle.EditCapUnidadesatencionTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capUnidadesatencionController.selected.fecha}" title="#{bundle.EditCapUnidadesatencionTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capUnidadesatencionController.selected.nombre}" title="#{bundle.EditCapUnidadesatencionTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_proyectoid}" for="proyectoid" />
+                        <p:selectOneMenu id="proyectoid" value="#{capUnidadesatencionController.selected.proyectoid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capProyectosController.itemsAvailableSelectOne}"
+                                           var="proyectoidItem"
+                                           itemValue="#{proyectoidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCapUnidadesatencionLabel_sectorid}" for="sectorid" />
+                        <p:selectOneMenu id="sectorid" value="#{capUnidadesatencionController.selected.sectorid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capSectoresController.itemsAvailableSelectOne}"
+                                           var="sectoridItem"
+                                           itemValue="#{sectoridItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capUnidadesatencionController.update}" value="#{bundle.Save}" update="display,:CapUnidadesatencionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapUnidadesatencionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapUnidadesatencionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCabhorariosEditDlg" widgetVar="CapCabhorariosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapCabhorariosTitle}">
+            <h:form id="CapCabhorariosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCabhorariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapCabhorariosLabel_cabhorarioid}" for="cabhorarioid" />
+                        <p:inputText id="cabhorarioid" value="#{capCabhorariosController.selected.cabhorarioid}" title="#{bundle.EditCapCabhorariosTitle_cabhorarioid}" required="true" requiredMessage="#{bundle.EditCapCabhorariosRequiredMessage_cabhorarioid}"/>
+                        <p:outputLabel value="#{bundle.EditCapCabhorariosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capCabhorariosController.selected.estado}" title="#{bundle.EditCapCabhorariosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapCabhorariosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capCabhorariosController.selected.fecha}" title="#{bundle.EditCapCabhorariosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapCabhorariosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capCabhorariosController.selected.nombre}" title="#{bundle.EditCapCabhorariosTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capCabhorariosController.update}" value="#{bundle.Save}" update="display,:CapCabhorariosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapCabhorariosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabhorariosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

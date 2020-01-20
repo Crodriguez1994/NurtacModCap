@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetainscripcionesCreateDlg" widgetVar="CapDetainscripcionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapDetainscripcionesTitle}">
+            <h:form id="CapDetainscripcionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetainscripcionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapDetainscripcionesLabel_capDetainscripcionesPK_detainsid}" for="capDetainscripcionesPK_detainsid" />
+                        <p:inputText id="capDetainscripcionesPK_detainsid" value="#{capDetainscripcionesController.selected.capDetainscripcionesPK.detainsid}" title="#{bundle.CreateCapDetainscripcionesTitle_capDetainscripcionesPK_detainsid}" required="true" requiredMessage="#{bundle.CreateCapDetainscripcionesRequiredMessage_capDetainscripcionesPK_detainsid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapDetainscripcionesLabel_beneficiarioid}" for="beneficiarioid" />
+                        <p:selectOneMenu id="beneficiarioid" value="#{capDetainscripcionesController.selected.beneficiarioid}" >
+                            <f:selectItems value="#{capBeneficiariosController.itemsAvailableSelectOne}"
+                                           var="beneficiarioidItem"
+                                           itemValue="#{beneficiarioidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCapDetainscripcionesLabel_capCabinscripciones}" for="capCabinscripciones" />
+                        <p:selectOneMenu id="capCabinscripciones" value="#{capDetainscripcionesController.selected.capCabinscripciones}" required="true" requiredMessage="#{bundle.EditCapDetainscripcionesRequiredMessage_capCabinscripciones}">
+                            <f:selectItems value="#{capCabinscripcionesController.itemsAvailableSelectOne}"
+                                           var="capCabinscripcionesItem"
+                                           itemValue="#{capCabinscripcionesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capDetainscripcionesController.create}" value="#{bundle.Save}" update="display,:CapDetainscripcionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapDetainscripcionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetainscripcionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

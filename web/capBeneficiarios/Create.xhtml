@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapBeneficiariosCreateDlg" widgetVar="CapBeneficiariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapBeneficiariosTitle}">
+            <h:form id="CapBeneficiariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capBeneficiariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_beneficiarioid}" for="beneficiarioid" />
+                        <p:inputText id="beneficiarioid" value="#{capBeneficiariosController.selected.beneficiarioid}" title="#{bundle.CreateCapBeneficiariosTitle_beneficiarioid}" required="true" requiredMessage="#{bundle.CreateCapBeneficiariosRequiredMessage_beneficiarioid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{capBeneficiariosController.selected.apellidos}" title="#{bundle.CreateCapBeneficiariosTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{capBeneficiariosController.selected.cedula}" title="#{bundle.CreateCapBeneficiariosTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{capBeneficiariosController.selected.celular}" title="#{bundle.CreateCapBeneficiariosTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_convencional}" for="convencional" />
+                        <p:inputText id="convencional" value="#{capBeneficiariosController.selected.convencional}" title="#{bundle.CreateCapBeneficiariosTitle_convencional}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{capBeneficiariosController.selected.direccion}" title="#{bundle.CreateCapBeneficiariosTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{capBeneficiariosController.selected.email}" title="#{bundle.CreateCapBeneficiariosTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capBeneficiariosController.selected.estado}" title="#{bundle.CreateCapBeneficiariosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capBeneficiariosController.selected.fecha}" title="#{bundle.EditCapBeneficiariosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{capBeneficiariosController.selected.nombres}" title="#{bundle.CreateCapBeneficiariosTitle_nombres}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capBeneficiariosController.create}" value="#{bundle.Save}" update="display,:CapBeneficiariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapBeneficiariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapBeneficiariosCreateDialog.hide()" immediate="true"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapEspecialidadesCreateDlg" widgetVar="CapEspecialidadesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapEspecialidadesTitle}">
+            <h:form id="CapEspecialidadesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capEspecialidadesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapEspecialidadesLabel_especialidadid}" for="especialidadid" />
+                        <p:inputText id="especialidadid" value="#{capEspecialidadesController.selected.especialidadid}" title="#{bundle.CreateCapEspecialidadesTitle_especialidadid}" required="true" requiredMessage="#{bundle.CreateCapEspecialidadesRequiredMessage_especialidadid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapEspecialidadesLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capEspecialidadesController.selected.estado}" title="#{bundle.CreateCapEspecialidadesTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapEspecialidadesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capEspecialidadesController.selected.fecha}" title="#{bundle.EditCapEspecialidadesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapEspecialidadesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capEspecialidadesController.selected.nombre}" title="#{bundle.CreateCapEspecialidadesTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capEspecialidadesController.create}" value="#{bundle.Save}" update="display,:CapEspecialidadesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapEspecialidadesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapEspecialidadesCreateDialog.hide()" immediate="true"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

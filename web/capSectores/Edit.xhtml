@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapSectoresEditDlg" widgetVar="CapSectoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapSectoresTitle}">
+            <h:form id="CapSectoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capSectoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_sectorid}" for="sectorid" />
+                        <p:inputText id="sectorid" value="#{capSectoresController.selected.sectorid}" title="#{bundle.EditCapSectoresTitle_sectorid}" required="true" requiredMessage="#{bundle.EditCapSectoresRequiredMessage_sectorid}"/>
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capSectoresController.selected.estado}" title="#{bundle.EditCapSectoresTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capSectoresController.selected.fecha}" title="#{bundle.EditCapSectoresTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capSectoresController.selected.nombre}" title="#{bundle.EditCapSectoresTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capSectoresController.update}" value="#{bundle.Save}" update="display,:CapSectoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapSectoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapSectoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

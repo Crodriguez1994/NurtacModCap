@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapFacilitadoresEditDlg" widgetVar="CapFacilitadoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapFacilitadoresTitle}">
+            <h:form id="CapFacilitadoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capFacilitadoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_facilitadorid}" for="facilitadorid" />
+                        <p:inputText id="facilitadorid" value="#{capFacilitadoresController.selected.facilitadorid}" title="#{bundle.EditCapFacilitadoresTitle_facilitadorid}" required="true" requiredMessage="#{bundle.EditCapFacilitadoresRequiredMessage_facilitadorid}"/>
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{capFacilitadoresController.selected.apellidos}" title="#{bundle.EditCapFacilitadoresTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{capFacilitadoresController.selected.cedula}" title="#{bundle.EditCapFacilitadoresTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{capFacilitadoresController.selected.celular}" title="#{bundle.EditCapFacilitadoresTitle_celular}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_convencional}" for="convencional" />
+                        <p:inputText id="convencional" value="#{capFacilitadoresController.selected.convencional}" title="#{bundle.EditCapFacilitadoresTitle_convencional}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{capFacilitadoresController.selected.direccion}" title="#{bundle.EditCapFacilitadoresTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{capFacilitadoresController.selected.email}" title="#{bundle.EditCapFacilitadoresTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capFacilitadoresController.selected.estado}" title="#{bundle.EditCapFacilitadoresTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_fechaingreso}" for="fechaingreso" />
+                        <p:calendar id="fechaingreso" pattern="MM/dd/yyyy" value="#{capFacilitadoresController.selected.fechaingreso}" title="#{bundle.EditCapFacilitadoresTitle_fechaingreso}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.EditCapFacilitadoresTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{capFacilitadoresController.selected.tipo}" title="#{bundle.EditCapFacilitadoresTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_empleadoid}" for="empleadoid" />
+                        <p:selectOneMenu id="empleadoid" value="#{capFacilitadoresController.selected.empleadoid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{bioEmpleadosController.itemsAvailableSelectOne}"
+                                           var="empleadoidItem"
+                                           itemValue="#{empleadoidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCapFacilitadoresLabel_especialidadid}" for="especialidadid" />
+                        <p:selectOneMenu id="especialidadid" value="#{capFacilitadoresController.selected.especialidadid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capEspecialidadesController.itemsAvailableSelectOne}"
+                                           var="especialidadidItem"
+                                           itemValue="#{especialidadidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capFacilitadoresController.update}" value="#{bundle.Save}" update="display,:CapFacilitadoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapFacilitadoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapFacilitadoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

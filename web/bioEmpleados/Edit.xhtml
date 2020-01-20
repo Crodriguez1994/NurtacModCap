@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BioEmpleadosEditDlg" widgetVar="BioEmpleadosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditBioEmpleadosTitle}">
+            <h:form id="BioEmpleadosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bioEmpleadosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_empleadoid}" for="empleadoid" />
+                        <p:inputText id="empleadoid" value="#{bioEmpleadosController.selected.empleadoid}" title="#{bundle.EditBioEmpleadosTitle_empleadoid}" required="true" requiredMessage="#{bundle.EditBioEmpleadosRequiredMessage_empleadoid}"/>
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{bioEmpleadosController.selected.apellidos}" title="#{bundle.EditBioEmpleadosTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_cargo}" for="cargo" />
+                        <p:inputText id="cargo" value="#{bioEmpleadosController.selected.cargo}" title="#{bundle.EditBioEmpleadosTitle_cargo}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{bioEmpleadosController.selected.cedula}" title="#{bundle.EditBioEmpleadosTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{bioEmpleadosController.selected.direccion}" title="#{bundle.EditBioEmpleadosTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_edad}" for="edad" />
+                        <p:inputText id="edad" value="#{bioEmpleadosController.selected.edad}" title="#{bundle.EditBioEmpleadosTitle_edad}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{bioEmpleadosController.selected.email}" title="#{bundle.EditBioEmpleadosTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{bioEmpleadosController.selected.estado}" title="#{bundle.EditBioEmpleadosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{bioEmpleadosController.selected.fecha}" title="#{bundle.EditBioEmpleadosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{bioEmpleadosController.selected.nombres}" title="#{bundle.EditBioEmpleadosTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditBioEmpleadosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{bioEmpleadosController.selected.telefono}" title="#{bundle.EditBioEmpleadosTitle_telefono}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bioEmpleadosController.update}" value="#{bundle.Save}" update="display,:BioEmpleadosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BioEmpleadosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BioEmpleadosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

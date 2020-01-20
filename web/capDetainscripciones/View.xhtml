@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetainscripcionesViewDlg" widgetVar="CapDetainscripcionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapDetainscripcionesTitle}">
+            <h:form id="CapDetainscripcionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetainscripcionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapDetainscripcionesLabel_capDetainscripcionesPK_detainsid}"/>
+                        <h:outputText value="#{capDetainscripcionesController.selected.capDetainscripcionesPK.detainsid}" title="#{bundle.ViewCapDetainscripcionesTitle_capDetainscripcionesPK_detainsid}"/>
+                        <h:outputText value="#{bundle.ViewCapDetainscripcionesLabel_beneficiarioid}"/>
+                        <h:outputText value="#{capDetainscripcionesController.selected.beneficiarioid}" title="#{bundle.ViewCapDetainscripcionesTitle_beneficiarioid}"/>
+                        <h:outputText value="#{bundle.ViewCapDetainscripcionesLabel_capCabinscripciones}"/>
+                        <h:outputText value="#{capDetainscripcionesController.selected.capCabinscripciones}" title="#{bundle.ViewCapDetainscripcionesTitle_capCabinscripciones}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapDetainscripcionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

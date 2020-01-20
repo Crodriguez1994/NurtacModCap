@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCabcapacitacionesCreateDlg" widgetVar="CapCabcapacitacionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapCabcapacitacionesTitle}">
+            <h:form id="CapCabcapacitacionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCabcapacitacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_cabcapid}" for="cabcapid" />
+                        <p:inputText id="cabcapid" value="#{capCabcapacitacionesController.selected.cabcapid}" title="#{bundle.CreateCapCabcapacitacionesTitle_cabcapid}" required="true" requiredMessage="#{bundle.CreateCapCabcapacitacionesRequiredMessage_cabcapid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_cupo}" for="cupo" />
+                        <p:inputText id="cupo" value="#{capCabcapacitacionesController.selected.cupo}" title="#{bundle.CreateCapCabcapacitacionesTitle_cupo}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capCabcapacitacionesController.selected.estado}" title="#{bundle.CreateCapCabcapacitacionesTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capCabcapacitacionesController.selected.fecha}" title="#{bundle.EditCapCabcapacitacionesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_fechaapertura}" for="fechaapertura" />
+                        <p:calendar id="fechaapertura" pattern="MM/dd/yyyy" value="#{capCabcapacitacionesController.selected.fechaapertura}" title="#{bundle.EditCapCabcapacitacionesTitle_fechaapertura}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_fechacierre}" for="fechacierre" />
+                        <p:calendar id="fechacierre" pattern="MM/dd/yyyy" value="#{capCabcapacitacionesController.selected.fechacierre}" title="#{bundle.EditCapCabcapacitacionesTitle_fechacierre}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_lugar}" for="lugar" />
+                        <p:inputText id="lugar" value="#{capCabcapacitacionesController.selected.lugar}" title="#{bundle.CreateCapCabcapacitacionesTitle_lugar}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capCabcapacitacionesController.selected.nombre}" title="#{bundle.CreateCapCabcapacitacionesTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{capCabcapacitacionesController.selected.tipo}" title="#{bundle.CreateCapCabcapacitacionesTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_asigproyectoid}" for="asigproyectoid" />
+                        <p:selectOneMenu id="asigproyectoid" value="#{capCabcapacitacionesController.selected.asigproyectoid}" >
+                            <f:selectItems value="#{capAsigproyectosController.itemsAvailableSelectOne}"
+                                           var="asigproyectoidItem"
+                                           itemValue="#{asigproyectoidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCapCabcapacitacionesLabel_unidadid}" for="unidadid" />
+                        <p:selectOneMenu id="unidadid" value="#{capCabcapacitacionesController.selected.unidadid}" >
+                            <f:selectItems value="#{capUnidadesatencionController.itemsAvailableSelectOne}"
+                                           var="unidadidItem"
+                                           itemValue="#{unidadidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capCabcapacitacionesController.create}" value="#{bundle.Save}" update="display,:CapCabcapacitacionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapCabcapacitacionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabcapacitacionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

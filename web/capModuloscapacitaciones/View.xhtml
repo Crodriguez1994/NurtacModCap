@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapModuloscapacitacionesViewDlg" widgetVar="CapModuloscapacitacionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapModuloscapacitacionesTitle}">
+            <h:form id="CapModuloscapacitacionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capModuloscapacitacionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapModuloscapacitacionesLabel_capModuloscapacitacionesPK_moduloid}"/>
+                        <h:outputText value="#{capModuloscapacitacionesController.selected.capModuloscapacitacionesPK.moduloid}" title="#{bundle.ViewCapModuloscapacitacionesTitle_capModuloscapacitacionesPK_moduloid}"/>
+                        <h:outputText value="#{bundle.ViewCapModuloscapacitacionesLabel_estado}"/>
+                        <h:outputText value="#{capModuloscapacitacionesController.selected.estado}" title="#{bundle.ViewCapModuloscapacitacionesTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewCapModuloscapacitacionesLabel_fecha}"/>
+                        <h:outputText value="#{capModuloscapacitacionesController.selected.fecha}" title="#{bundle.ViewCapModuloscapacitacionesTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCapModuloscapacitacionesLabel_nombre}"/>
+                        <h:outputText value="#{capModuloscapacitacionesController.selected.nombre}" title="#{bundle.ViewCapModuloscapacitacionesTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCapModuloscapacitacionesLabel_capCabcapacitaciones}"/>
+                        <h:outputText value="#{capModuloscapacitacionesController.selected.capCabcapacitaciones}" title="#{bundle.ViewCapModuloscapacitacionesTitle_capCabcapacitaciones}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapModuloscapacitacionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

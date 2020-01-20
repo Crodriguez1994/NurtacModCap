@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetasistenciasEditDlg" widgetVar="CapDetasistenciasEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapDetasistenciasTitle}">
+            <h:form id="CapDetasistenciasEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetasistenciasController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapDetasistenciasLabel_capDetasistenciasPK_detasistenciaid}" for="capDetasistenciasPK_detasistenciaid" />
+                        <p:inputText id="capDetasistenciasPK_detasistenciaid" value="#{capDetasistenciasController.selected.capDetasistenciasPK.detasistenciaid}" title="#{bundle.EditCapDetasistenciasTitle_capDetasistenciasPK_detasistenciaid}" required="true" requiredMessage="#{bundle.EditCapDetasistenciasRequiredMessage_capDetasistenciasPK_detasistenciaid}"/>
+                        <p:outputLabel value="#{bundle.EditCapDetasistenciasLabel_asistencia}" for="asistencia" />
+                        <p:selectBooleanCheckbox id="asistencia" value="#{capDetasistenciasController.selected.asistencia}" />
+                        <p:outputLabel value="#{bundle.EditCapDetasistenciasLabel_beneficiarioid}" for="beneficiarioid" />
+                        <p:selectOneMenu id="beneficiarioid" value="#{capDetasistenciasController.selected.beneficiarioid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capBeneficiariosController.itemsAvailableSelectOne}"
+                                           var="beneficiarioidItem"
+                                           itemValue="#{beneficiarioidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCapDetasistenciasLabel_capCabasistencias}" for="capCabasistencias" />
+                        <p:selectOneMenu id="capCabasistencias" value="#{capDetasistenciasController.selected.capCabasistencias}" required="true" requiredMessage="#{bundle.EditCapDetasistenciasRequiredMessage_capCabasistencias}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capCabasistenciasController.itemsAvailableSelectOne}"
+                                           var="capCabasistenciasItem"
+                                           itemValue="#{capCabasistenciasItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capDetasistenciasController.update}" value="#{bundle.Save}" update="display,:CapDetasistenciasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapDetasistenciasEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetasistenciasEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

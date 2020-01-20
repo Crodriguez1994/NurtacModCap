@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCoordinadoresEditDlg" widgetVar="CapCoordinadoresEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapCoordinadoresTitle}">
+            <h:form id="CapCoordinadoresEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCoordinadoresController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_coordinadorid}" for="coordinadorid" />
+                        <p:inputText id="coordinadorid" value="#{capCoordinadoresController.selected.coordinadorid}" title="#{bundle.EditCapCoordinadoresTitle_coordinadorid}" required="true" requiredMessage="#{bundle.EditCapCoordinadoresRequiredMessage_coordinadorid}"/>
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{capCoordinadoresController.selected.apellidos}" title="#{bundle.EditCapCoordinadoresTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{capCoordinadoresController.selected.cedula}" title="#{bundle.EditCapCoordinadoresTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{capCoordinadoresController.selected.celular}" title="#{bundle.EditCapCoordinadoresTitle_celular}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_convencional}" for="convencional" />
+                        <p:inputText id="convencional" value="#{capCoordinadoresController.selected.convencional}" title="#{bundle.EditCapCoordinadoresTitle_convencional}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{capCoordinadoresController.selected.direccion}" title="#{bundle.EditCapCoordinadoresTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{capCoordinadoresController.selected.email}" title="#{bundle.EditCapCoordinadoresTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capCoordinadoresController.selected.estado}" title="#{bundle.EditCapCoordinadoresTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_fechaingreso}" for="fechaingreso" />
+                        <p:calendar id="fechaingreso" pattern="MM/dd/yyyy" value="#{capCoordinadoresController.selected.fechaingreso}" title="#{bundle.EditCapCoordinadoresTitle_fechaingreso}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.EditCapCoordinadoresTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{capCoordinadoresController.selected.tipo}" title="#{bundle.EditCapCoordinadoresTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_empleadoid}" for="empleadoid" />
+                        <p:selectOneMenu id="empleadoid" value="#{capCoordinadoresController.selected.empleadoid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{bioEmpleadosController.itemsAvailableSelectOne}"
+                                           var="empleadoidItem"
+                                           itemValue="#{empleadoidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capCoordinadoresController.update}" value="#{bundle.Save}" update="display,:CapCoordinadoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapCoordinadoresEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCoordinadoresEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

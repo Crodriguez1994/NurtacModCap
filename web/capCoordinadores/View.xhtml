@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCoordinadoresViewDlg" widgetVar="CapCoordinadoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapCoordinadoresTitle}">
+            <h:form id="CapCoordinadoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCoordinadoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_coordinadorid}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.coordinadorid}" title="#{bundle.ViewCapCoordinadoresTitle_coordinadorid}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_apellidos}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.apellidos}" title="#{bundle.ViewCapCoordinadoresTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_cedula}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.cedula}" title="#{bundle.ViewCapCoordinadoresTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_celular}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.celular}" title="#{bundle.ViewCapCoordinadoresTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_convencional}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.convencional}" title="#{bundle.ViewCapCoordinadoresTitle_convencional}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_direccion}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.direccion}" title="#{bundle.ViewCapCoordinadoresTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_email}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.email}" title="#{bundle.ViewCapCoordinadoresTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_estado}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.estado}" title="#{bundle.ViewCapCoordinadoresTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_fechaingreso}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.fechaingreso}" title="#{bundle.ViewCapCoordinadoresTitle_fechaingreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_nombres}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.ViewCapCoordinadoresTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_tipo}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.tipo}" title="#{bundle.ViewCapCoordinadoresTitle_tipo}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_empleadoid}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.empleadoid}" title="#{bundle.ViewCapCoordinadoresTitle_empleadoid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapCoordinadoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

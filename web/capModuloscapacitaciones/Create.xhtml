@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapModuloscapacitacionesCreateDlg" widgetVar="CapModuloscapacitacionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapModuloscapacitacionesTitle}">
+            <h:form id="CapModuloscapacitacionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capModuloscapacitacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapModuloscapacitacionesLabel_capModuloscapacitacionesPK_moduloid}" for="capModuloscapacitacionesPK_moduloid" />
+                        <p:inputText id="capModuloscapacitacionesPK_moduloid" value="#{capModuloscapacitacionesController.selected.capModuloscapacitacionesPK.moduloid}" title="#{bundle.CreateCapModuloscapacitacionesTitle_capModuloscapacitacionesPK_moduloid}" required="true" requiredMessage="#{bundle.CreateCapModuloscapacitacionesRequiredMessage_capModuloscapacitacionesPK_moduloid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapModuloscapacitacionesLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capModuloscapacitacionesController.selected.estado}" title="#{bundle.CreateCapModuloscapacitacionesTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapModuloscapacitacionesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capModuloscapacitacionesController.selected.fecha}" title="#{bundle.EditCapModuloscapacitacionesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapModuloscapacitacionesLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capModuloscapacitacionesController.selected.nombre}" title="#{bundle.CreateCapModuloscapacitacionesTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.CreateCapModuloscapacitacionesLabel_capCabcapacitaciones}" for="capCabcapacitaciones" />
+                        <p:selectOneMenu id="capCabcapacitaciones" value="#{capModuloscapacitacionesController.selected.capCabcapacitaciones}" required="true" requiredMessage="#{bundle.EditCapModuloscapacitacionesRequiredMessage_capCabcapacitaciones}">
+                            <f:selectItems value="#{capCabcapacitacionesController.itemsAvailableSelectOne}"
+                                           var="capCabcapacitacionesItem"
+                                           itemValue="#{capCabcapacitacionesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capModuloscapacitacionesController.create}" value="#{bundle.Save}" update="display,:CapModuloscapacitacionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapModuloscapacitacionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapModuloscapacitacionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

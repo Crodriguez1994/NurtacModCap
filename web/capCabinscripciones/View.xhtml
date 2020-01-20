@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCabinscripcionesViewDlg" widgetVar="CapCabinscripcionesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapCabinscripcionesTitle}">
+            <h:form id="CapCabinscripcionesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCabinscripcionesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_cabinscripcionid}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.cabinscripcionid}" title="#{bundle.ViewCapCabinscripcionesTitle_cabinscripcionid}"/>
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_estado}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.estado}" title="#{bundle.ViewCapCabinscripcionesTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_fecha}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.fecha}" title="#{bundle.ViewCapCabinscripcionesTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_responsable}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.responsable}" title="#{bundle.ViewCapCabinscripcionesTitle_responsable}"/>
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_cabcapid}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.cabcapid}" title="#{bundle.ViewCapCabinscripcionesTitle_cabcapid}"/>
+                        <h:outputText value="#{bundle.ViewCapCabinscripcionesLabel_cabhorarioid}"/>
+                        <h:outputText value="#{capCabinscripcionesController.selected.cabhorarioid}" title="#{bundle.ViewCapCabinscripcionesTitle_cabhorarioid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapCabinscripcionesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

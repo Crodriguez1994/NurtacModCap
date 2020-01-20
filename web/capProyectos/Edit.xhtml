@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapProyectosEditDlg" widgetVar="CapProyectosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapProyectosTitle}">
+            <h:form id="CapProyectosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capProyectosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_proyectoid}" for="proyectoid" />
+                        <p:inputText id="proyectoid" value="#{capProyectosController.selected.proyectoid}" title="#{bundle.EditCapProyectosTitle_proyectoid}" required="true" requiredMessage="#{bundle.EditCapProyectosRequiredMessage_proyectoid}"/>
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capProyectosController.selected.estado}" title="#{bundle.EditCapProyectosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fecha}" title="#{bundle.EditCapProyectosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_fechafin}" for="fechafin" />
+                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fechafin}" title="#{bundle.EditCapProyectosTitle_fechafin}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_fechainicio}" for="fechainicio" />
+                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fechainicio}" title="#{bundle.EditCapProyectosTitle_fechainicio}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapProyectosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{capProyectosController.selected.nombre}" title="#{bundle.EditCapProyectosTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capProyectosController.update}" value="#{bundle.Save}" update="display,:CapProyectosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapProyectosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapProyectosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

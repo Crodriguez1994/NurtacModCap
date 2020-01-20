@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Nurtac Modulo Capacitacion
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Ocultar" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Mantenimiento">
+    <p:menuitem value="Beneficiarios" outcome="/capBeneficiarios/List.xhtml" />
+    <p:menuitem value="Coordinadores" outcome="/capCoordinadores/List.xhtml" />
+    <p:menuitem value="Especialidades" outcome="/capEspecialidades/List.xhtml" />
+    <p:menuitem value="Facilitadores" outcome="/capFacilitadores/List.xhtml" />
+    <p:menuitem value="Cab Horarios" outcome="/capCabhorarios/List.xhtml" />   
+    <p:menuitem value="Det Horarios" outcome="/capDetahorarios/List.xhtml" />
+    <p:menuitem value="Proyectos" outcome="/capProyectos/List.xhtml" />
+<p:menuitem value="Sectores" outcome="/capSectores/List.xhtml" />
+    <p:menuitem value="Dias" outcome="/bioDias/List.xhtml" />
+    <p:menuitem value="Unidades De Atencion" outcome="/capUnidadesatencion/List.xhtml" />
+</p:submenu>
+                         <p:submenu label="Procesos">
+                             <p:menuitem value="Cab Agenda" outcome="/capCabagendas/List.xhtml" />
+                             <p:menuitem value="CapDetagendas" outcome="/capDetagendas/List.xhtml" />
+
+                            <p:menuitem value="Empleados" outcome="/bioEmpleados/List.xhtml" />
+                            <p:menuitem value="Asignar Proyectos" outcome="/capAsigproyectos/List.xhtml" />
+                            <p:menuitem value="Asignar Proyectos por Sector" outcome="/capAsigproyectosector/List.xhtml" />
+                         
+                            
+                            <p:menuitem value="Cab Asistencias" outcome="/capCabasistencias/List.xhtml" />
+<p:menuitem value="Det Asistencias" outcome="/capDetasistencias/List.xhtml" />
+<p:menuitem value="Cab Inscripciones" outcome="/capCabinscripciones/List.xhtml" />
+    <p:menuitem value="Deta Inscripciones" outcome="/capDetainscripciones/List.xhtml" />
+                            <p:menuitem value="Planificacion Actividades" outcome="/capPlanificacionactividades/List.xhtml" />
+
+                            <p:menuitem value="Capacitacion" outcome="/capCabcapacitaciones/List.xhtml" />
+                            
+                                                        <p:menuitem value="CapDetacapacitaciones" outcome="/capDetacapacitaciones/List.xhtml" />
+                                                        
+                                                    
+                            
+                            <p:menuitem value="CapModuloscapacitaciones" outcome="/capModuloscapacitaciones/List.xhtml" />
+                                                        
+                            
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

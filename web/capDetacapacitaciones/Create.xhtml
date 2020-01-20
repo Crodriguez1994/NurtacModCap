@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetacapacitacionesCreateDlg" widgetVar="CapDetacapacitacionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapDetacapacitacionesTitle}">
+            <h:form id="CapDetacapacitacionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetacapacitacionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapDetacapacitacionesLabel_capDetacapacitacionesPK_detacapid}" for="capDetacapacitacionesPK_detacapid" />
+                        <p:inputText id="capDetacapacitacionesPK_detacapid" value="#{capDetacapacitacionesController.selected.capDetacapacitacionesPK.detacapid}" title="#{bundle.CreateCapDetacapacitacionesTitle_capDetacapacitacionesPK_detacapid}" required="true" requiredMessage="#{bundle.CreateCapDetacapacitacionesRequiredMessage_capDetacapacitacionesPK_detacapid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapDetacapacitacionesLabel_capCabcapacitaciones}" for="capCabcapacitaciones" />
+                        <p:selectOneMenu id="capCabcapacitaciones" value="#{capDetacapacitacionesController.selected.capCabcapacitaciones}" required="true" requiredMessage="#{bundle.EditCapDetacapacitacionesRequiredMessage_capCabcapacitaciones}">
+                            <f:selectItems value="#{capCabcapacitacionesController.itemsAvailableSelectOne}"
+                                           var="capCabcapacitacionesItem"
+                                           itemValue="#{capCabcapacitacionesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCapDetacapacitacionesLabel_facilitadorid}" for="facilitadorid" />
+                        <p:selectOneMenu id="facilitadorid" value="#{capDetacapacitacionesController.selected.facilitadorid}" >
+                            <f:selectItems value="#{capFacilitadoresController.itemsAvailableSelectOne}"
+                                           var="facilitadoridItem"
+                                           itemValue="#{facilitadoridItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capDetacapacitacionesController.create}" value="#{bundle.Save}" update="display,:CapDetacapacitacionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapDetacapacitacionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetacapacitacionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

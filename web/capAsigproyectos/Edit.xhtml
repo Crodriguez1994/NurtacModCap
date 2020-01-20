@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapAsigproyectosEditDlg" widgetVar="CapAsigproyectosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapAsigproyectosTitle}">
+            <h:form id="CapAsigproyectosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capAsigproyectosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosLabel_asigproyectoid}" for="asigproyectoid" />
+                        <p:inputText id="asigproyectoid" value="#{capAsigproyectosController.selected.asigproyectoid}" title="#{bundle.EditCapAsigproyectosTitle_asigproyectoid}" required="true" requiredMessage="#{bundle.EditCapAsigproyectosRequiredMessage_asigproyectoid}"/>
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capAsigproyectosController.selected.estado}" title="#{bundle.EditCapAsigproyectosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capAsigproyectosController.selected.fecha}" title="#{bundle.EditCapAsigproyectosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosLabel_coordinadorid}" for="coordinadorid" />
+                        <p:selectOneMenu id="coordinadorid" value="#{capAsigproyectosController.selected.coordinadorid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capCoordinadoresController.itemsAvailableSelectOne}"
+                                           var="coordinadoridItem"
+                                           itemValue="#{coordinadoridItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosLabel_proyectoid}" for="proyectoid" />
+                        <p:selectOneMenu id="proyectoid" value="#{capAsigproyectosController.selected.proyectoid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capProyectosController.itemsAvailableSelectOne}"
+                                           var="proyectoidItem"
+                                           itemValue="#{proyectoidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capAsigproyectosController.update}" value="#{bundle.Save}" update="display,:CapAsigproyectosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapAsigproyectosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapAsigproyectosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

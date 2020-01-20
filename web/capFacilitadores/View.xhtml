@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapFacilitadoresViewDlg" widgetVar="CapFacilitadoresViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapFacilitadoresTitle}">
+            <h:form id="CapFacilitadoresViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capFacilitadoresController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_facilitadorid}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.facilitadorid}" title="#{bundle.ViewCapFacilitadoresTitle_facilitadorid}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_apellidos}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.apellidos}" title="#{bundle.ViewCapFacilitadoresTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_cedula}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.cedula}" title="#{bundle.ViewCapFacilitadoresTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_celular}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.celular}" title="#{bundle.ViewCapFacilitadoresTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_convencional}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.convencional}" title="#{bundle.ViewCapFacilitadoresTitle_convencional}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_direccion}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.direccion}" title="#{bundle.ViewCapFacilitadoresTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_email}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.email}" title="#{bundle.ViewCapFacilitadoresTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_estado}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.estado}" title="#{bundle.ViewCapFacilitadoresTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_fechaingreso}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.fechaingreso}" title="#{bundle.ViewCapFacilitadoresTitle_fechaingreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_nombres}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.ViewCapFacilitadoresTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_tipo}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.tipo}" title="#{bundle.ViewCapFacilitadoresTitle_tipo}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_empleadoid}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.empleadoid}" title="#{bundle.ViewCapFacilitadoresTitle_empleadoid}"/>
+                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_especialidadid}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.especialidadid}" title="#{bundle.ViewCapFacilitadoresTitle_especialidadid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapFacilitadoresViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

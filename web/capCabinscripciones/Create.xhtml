@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCabinscripcionesCreateDlg" widgetVar="CapCabinscripcionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapCabinscripcionesTitle}">
+            <h:form id="CapCabinscripcionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCabinscripcionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_cabinscripcionid}" for="cabinscripcionid" />
+                        <p:inputText id="cabinscripcionid" value="#{capCabinscripcionesController.selected.cabinscripcionid}" title="#{bundle.CreateCapCabinscripcionesTitle_cabinscripcionid}" required="true" requiredMessage="#{bundle.CreateCapCabinscripcionesRequiredMessage_cabinscripcionid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capCabinscripcionesController.selected.estado}" title="#{bundle.CreateCapCabinscripcionesTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capCabinscripcionesController.selected.fecha}" title="#{bundle.EditCapCabinscripcionesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_responsable}" for="responsable" />
+                        <p:inputText id="responsable" value="#{capCabinscripcionesController.selected.responsable}" title="#{bundle.CreateCapCabinscripcionesTitle_responsable}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_cabcapid}" for="cabcapid" />
+                        <p:selectOneMenu id="cabcapid" value="#{capCabinscripcionesController.selected.cabcapid}" >
+                            <f:selectItems value="#{capCabcapacitacionesController.itemsAvailableSelectOne}"
+                                           var="cabcapidItem"
+                                           itemValue="#{cabcapidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCapCabinscripcionesLabel_cabhorarioid}" for="cabhorarioid" />
+                        <p:selectOneMenu id="cabhorarioid" value="#{capCabinscripcionesController.selected.cabhorarioid}" >
+                            <f:selectItems value="#{capCabhorariosController.itemsAvailableSelectOne}"
+                                           var="cabhorarioidItem"
+                                           itemValue="#{cabhorarioidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capCabinscripcionesController.create}" value="#{bundle.Save}" update="display,:CapCabinscripcionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapCabinscripcionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabinscripcionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

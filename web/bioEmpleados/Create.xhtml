@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BioEmpleadosCreateDlg" widgetVar="BioEmpleadosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBioEmpleadosTitle}">
+            <h:form id="BioEmpleadosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bioEmpleadosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_empleadoid}" for="empleadoid" />
+                        <p:inputText id="empleadoid" value="#{bioEmpleadosController.selected.empleadoid}" title="#{bundle.CreateBioEmpleadosTitle_empleadoid}" required="true" requiredMessage="#{bundle.CreateBioEmpleadosRequiredMessage_empleadoid}"/>
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{bioEmpleadosController.selected.apellidos}" title="#{bundle.CreateBioEmpleadosTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_cargo}" for="cargo" />
+                        <p:inputText id="cargo" value="#{bioEmpleadosController.selected.cargo}" title="#{bundle.CreateBioEmpleadosTitle_cargo}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{bioEmpleadosController.selected.cedula}" title="#{bundle.CreateBioEmpleadosTitle_cedula}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{bioEmpleadosController.selected.direccion}" title="#{bundle.CreateBioEmpleadosTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_edad}" for="edad" />
+                        <p:inputText id="edad" value="#{bioEmpleadosController.selected.edad}" title="#{bundle.CreateBioEmpleadosTitle_edad}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{bioEmpleadosController.selected.email}" title="#{bundle.CreateBioEmpleadosTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{bioEmpleadosController.selected.estado}" title="#{bundle.CreateBioEmpleadosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{bioEmpleadosController.selected.fecha}" title="#{bundle.EditBioEmpleadosTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{bioEmpleadosController.selected.nombres}" title="#{bundle.CreateBioEmpleadosTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.CreateBioEmpleadosLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{bioEmpleadosController.selected.telefono}" title="#{bundle.CreateBioEmpleadosTitle_telefono}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bioEmpleadosController.create}" value="#{bundle.Save}" update="display,:BioEmpleadosListForm:datalist,:growl" oncomplete="handleSubmit(args,'BioEmpleadosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BioEmpleadosCreateDialog.hide()" immediate="true"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

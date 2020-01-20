@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetagendasCreateDlg" widgetVar="CapDetagendasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapDetagendasTitle}">
+            <h:form id="CapDetagendasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetagendasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_capDetagendasPK_detagendaid}" for="capDetagendasPK_detagendaid" />
+                        <p:inputText id="capDetagendasPK_detagendaid" value="#{capDetagendasController.selected.capDetagendasPK.detagendaid}" title="#{bundle.CreateCapDetagendasTitle_capDetagendasPK_detagendaid}" required="true" requiredMessage="#{bundle.CreateCapDetagendasRequiredMessage_capDetagendasPK_detagendaid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_actividad}" for="actividad" />
+                        <p:inputText id="actividad" value="#{capDetagendasController.selected.actividad}" title="#{bundle.CreateCapDetagendasTitle_actividad}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_estrategia}" for="estrategia" />
+                        <p:inputText id="estrategia" value="#{capDetagendasController.selected.estrategia}" title="#{bundle.CreateCapDetagendasTitle_estrategia}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_horafin}" for="horafin" />
+                        <p:inputText id="horafin" value="#{capDetagendasController.selected.horafin}" title="#{bundle.CreateCapDetagendasTitle_horafin}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_horainicio}" for="horainicio" />
+                        <p:inputText id="horainicio" value="#{capDetagendasController.selected.horainicio}" title="#{bundle.CreateCapDetagendasTitle_horainicio}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_responsable}" for="responsable" />
+                        <p:inputText id="responsable" value="#{capDetagendasController.selected.responsable}" title="#{bundle.CreateCapDetagendasTitle_responsable}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetagendasLabel_capCabagendas}" for="capCabagendas" />
+                        <p:selectOneMenu id="capCabagendas" value="#{capDetagendasController.selected.capCabagendas}" required="true" requiredMessage="#{bundle.EditCapDetagendasRequiredMessage_capCabagendas}">
+                            <f:selectItems value="#{capCabagendasController.itemsAvailableSelectOne}"
+                                           var="capCabagendasItem"
+                                           itemValue="#{capCabagendasItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capDetagendasController.create}" value="#{bundle.Save}" update="display,:CapDetagendasListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapDetagendasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetagendasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

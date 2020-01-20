@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BioEmpleadosViewDlg" widgetVar="BioEmpleadosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewBioEmpleadosTitle}">
+            <h:form id="BioEmpleadosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bioEmpleadosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_empleadoid}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.empleadoid}" title="#{bundle.ViewBioEmpleadosTitle_empleadoid}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_apellidos}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.apellidos}" title="#{bundle.ViewBioEmpleadosTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_cargo}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.cargo}" title="#{bundle.ViewBioEmpleadosTitle_cargo}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_cedula}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.cedula}" title="#{bundle.ViewBioEmpleadosTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_direccion}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.direccion}" title="#{bundle.ViewBioEmpleadosTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_edad}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.edad}" title="#{bundle.ViewBioEmpleadosTitle_edad}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_email}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.email}" title="#{bundle.ViewBioEmpleadosTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_estado}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.estado}" title="#{bundle.ViewBioEmpleadosTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_fecha}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.fecha}" title="#{bundle.ViewBioEmpleadosTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_nombres}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.nombres}" title="#{bundle.ViewBioEmpleadosTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewBioEmpleadosLabel_telefono}"/>
+                        <h:outputText value="#{bioEmpleadosController.selected.telefono}" title="#{bundle.ViewBioEmpleadosTitle_telefono}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="BioEmpleadosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

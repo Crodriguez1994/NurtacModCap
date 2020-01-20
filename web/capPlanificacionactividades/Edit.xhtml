@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapPlanificacionactividadesEditDlg" widgetVar="CapPlanificacionactividadesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapPlanificacionactividadesTitle}">
+            <h:form id="CapPlanificacionactividadesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capPlanificacionactividadesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_planificacionid}" for="planificacionid" />
+                        <p:inputText id="planificacionid" value="#{capPlanificacionactividadesController.selected.planificacionid}" title="#{bundle.EditCapPlanificacionactividadesTitle_planificacionid}" required="true" requiredMessage="#{bundle.EditCapPlanificacionactividadesRequiredMessage_planificacionid}"/>
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_actividad}" for="actividad" />
+                        <p:inputText id="actividad" value="#{capPlanificacionactividadesController.selected.actividad}" title="#{bundle.EditCapPlanificacionactividadesTitle_actividad}" />
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capPlanificacionactividadesController.selected.fecha}" title="#{bundle.EditCapPlanificacionactividadesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_lugar}" for="lugar" />
+                        <p:inputText id="lugar" value="#{capPlanificacionactividadesController.selected.lugar}" title="#{bundle.EditCapPlanificacionactividadesTitle_lugar}" />
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_objetivo}" for="objetivo" />
+                        <p:inputText id="objetivo" value="#{capPlanificacionactividadesController.selected.objetivo}" title="#{bundle.EditCapPlanificacionactividadesTitle_objetivo}" />
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_resultados}" for="resultados" />
+                        <p:inputText id="resultados" value="#{capPlanificacionactividadesController.selected.resultados}" title="#{bundle.EditCapPlanificacionactividadesTitle_resultados}" />
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{capPlanificacionactividadesController.selected.tipo}" title="#{bundle.EditCapPlanificacionactividadesTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.EditCapPlanificacionactividadesLabel_cabagendaid}" for="cabagendaid" />
+                        <p:selectOneMenu id="cabagendaid" value="#{capPlanificacionactividadesController.selected.cabagendaid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capCabagendasController.itemsAvailableSelectOne}"
+                                           var="cabagendaidItem"
+                                           itemValue="#{cabagendaidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capPlanificacionactividadesController.update}" value="#{bundle.Save}" update="display,:CapPlanificacionactividadesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapPlanificacionactividadesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapPlanificacionactividadesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

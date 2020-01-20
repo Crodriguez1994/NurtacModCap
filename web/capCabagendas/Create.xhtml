@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapCabagendasCreateDlg" widgetVar="CapCabagendasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapCabagendasTitle}">
+            <h:form id="CapCabagendasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capCabagendasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapCabagendasLabel_cabagendaid}" for="cabagendaid" />
+                        <p:inputText id="cabagendaid" value="#{capCabagendasController.selected.cabagendaid}" title="#{bundle.CreateCapCabagendasTitle_cabagendaid}" required="true" requiredMessage="#{bundle.CreateCapCabagendasRequiredMessage_cabagendaid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabagendasLabel_dia}" for="dia" />
+                        <p:inputText id="dia" value="#{capCabagendasController.selected.dia}" title="#{bundle.CreateCapCabagendasTitle_dia}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabagendasLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{capCabagendasController.selected.estado}" title="#{bundle.CreateCapCabagendasTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapCabagendasLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capCabagendasController.selected.fecha}" title="#{bundle.EditCapCabagendasTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapCabagendasLabel_capModuloscapacitaciones}" for="capModuloscapacitaciones" />
+                        <p:selectOneMenu id="capModuloscapacitaciones" value="#{capCabagendasController.selected.capModuloscapacitaciones}" >
+                            <f:selectItems value="#{capModuloscapacitacionesController.itemsAvailableSelectOne}"
+                                           var="capModuloscapacitacionesItem"
+                                           itemValue="#{capModuloscapacitacionesItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capCabagendasController.create}" value="#{bundle.Save}" update="display,:CapCabagendasListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapCabagendasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabagendasCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapAsigproyectosectorEditDlg" widgetVar="CapAsigproyectosectorEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCapAsigproyectosectorTitle}">
+            <h:form id="CapAsigproyectosectorEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capAsigproyectosectorController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosectorLabel_capAsigproyectosectorPK_asigid}" for="capAsigproyectosectorPK_asigid" />
+                        <p:inputText id="capAsigproyectosectorPK_asigid" value="#{capAsigproyectosectorController.selected.capAsigproyectosectorPK.asigid}" title="#{bundle.EditCapAsigproyectosectorTitle_capAsigproyectosectorPK_asigid}" required="true" requiredMessage="#{bundle.EditCapAsigproyectosectorRequiredMessage_capAsigproyectosectorPK_asigid}"/>
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosectorLabel_capProyectos}" for="capProyectos" />
+                        <p:selectOneMenu id="capProyectos" value="#{capAsigproyectosectorController.selected.capProyectos}" required="true" requiredMessage="#{bundle.EditCapAsigproyectosectorRequiredMessage_capProyectos}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capProyectosController.itemsAvailableSelectOne}"
+                                           var="capProyectosItem"
+                                           itemValue="#{capProyectosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditCapAsigproyectosectorLabel_sectorid}" for="sectorid" />
+                        <p:selectOneMenu id="sectorid" value="#{capAsigproyectosectorController.selected.sectorid}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{capSectoresController.itemsAvailableSelectOne}"
+                                           var="sectoridItem"
+                                           itemValue="#{sectoridItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capAsigproyectosectorController.update}" value="#{bundle.Save}" update="display,:CapAsigproyectosectorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapAsigproyectosectorEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapAsigproyectosectorEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

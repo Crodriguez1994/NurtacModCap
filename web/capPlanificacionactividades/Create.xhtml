@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapPlanificacionactividadesCreateDlg" widgetVar="CapPlanificacionactividadesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapPlanificacionactividadesTitle}">
+            <h:form id="CapPlanificacionactividadesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capPlanificacionactividadesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_planificacionid}" for="planificacionid" />
+                        <p:inputText id="planificacionid" value="#{capPlanificacionactividadesController.selected.planificacionid}" title="#{bundle.CreateCapPlanificacionactividadesTitle_planificacionid}" required="true" requiredMessage="#{bundle.CreateCapPlanificacionactividadesRequiredMessage_planificacionid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_actividad}" for="actividad" />
+                        <p:inputText id="actividad" value="#{capPlanificacionactividadesController.selected.actividad}" title="#{bundle.CreateCapPlanificacionactividadesTitle_actividad}" />
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capPlanificacionactividadesController.selected.fecha}" title="#{bundle.EditCapPlanificacionactividadesTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_lugar}" for="lugar" />
+                        <p:inputText id="lugar" value="#{capPlanificacionactividadesController.selected.lugar}" title="#{bundle.CreateCapPlanificacionactividadesTitle_lugar}" />
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_objetivo}" for="objetivo" />
+                        <p:inputText id="objetivo" value="#{capPlanificacionactividadesController.selected.objetivo}" title="#{bundle.CreateCapPlanificacionactividadesTitle_objetivo}" />
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_resultados}" for="resultados" />
+                        <p:inputText id="resultados" value="#{capPlanificacionactividadesController.selected.resultados}" title="#{bundle.CreateCapPlanificacionactividadesTitle_resultados}" />
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{capPlanificacionactividadesController.selected.tipo}" title="#{bundle.CreateCapPlanificacionactividadesTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.CreateCapPlanificacionactividadesLabel_cabagendaid}" for="cabagendaid" />
+                        <p:selectOneMenu id="cabagendaid" value="#{capPlanificacionactividadesController.selected.cabagendaid}" >
+                            <f:selectItems value="#{capCabagendasController.itemsAvailableSelectOne}"
+                                           var="cabagendaidItem"
+                                           itemValue="#{cabagendaidItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capPlanificacionactividadesController.create}" value="#{bundle.Save}" update="display,:CapPlanificacionactividadesListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapPlanificacionactividadesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapPlanificacionactividadesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapUnidadesatencionViewDlg" widgetVar="CapUnidadesatencionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapUnidadesatencionTitle}">
+            <h:form id="CapUnidadesatencionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capUnidadesatencionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_unidadid}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.unidadid}" title="#{bundle.ViewCapUnidadesatencionTitle_unidadid}"/>
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_estado}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.estado}" title="#{bundle.ViewCapUnidadesatencionTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_fecha}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.fecha}" title="#{bundle.ViewCapUnidadesatencionTitle_fecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_nombre}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.nombre}" title="#{bundle.ViewCapUnidadesatencionTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_proyectoid}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.proyectoid}" title="#{bundle.ViewCapUnidadesatencionTitle_proyectoid}"/>
+                        <h:outputText value="#{bundle.ViewCapUnidadesatencionLabel_sectorid}"/>
+                        <h:outputText value="#{capUnidadesatencionController.selected.sectorid}" title="#{bundle.ViewCapUnidadesatencionTitle_sectorid}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CapUnidadesatencionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

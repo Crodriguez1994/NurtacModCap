@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="BioDiasCreateDlg" widgetVar="BioDiasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateBioDiasTitle}">
+            <h:form id="BioDiasCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{bioDiasController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateBioDiasLabel_diaid}" for="diaid" />
+                        <p:inputText id="diaid" value="#{bioDiasController.selected.diaid}" title="#{bundle.CreateBioDiasTitle_diaid}" required="true" requiredMessage="#{bundle.CreateBioDiasRequiredMessage_diaid}"/>
+                        <p:outputLabel value="#{bundle.CreateBioDiasLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{bioDiasController.selected.fecha}" title="#{bundle.EditBioDiasTitle_fecha}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateBioDiasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{bioDiasController.selected.nombre}" title="#{bundle.CreateBioDiasTitle_nombre}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{bioDiasController.create}" value="#{bundle.Save}" update="display,:BioDiasListForm:datalist,:growl" oncomplete="handleSubmit(args,'BioDiasCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BioDiasCreateDialog.hide()" immediate="true" />
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

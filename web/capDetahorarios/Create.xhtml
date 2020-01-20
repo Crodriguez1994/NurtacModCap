@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CapDetahorariosCreateDlg" widgetVar="CapDetahorariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapDetahorariosTitle}">
+            <h:form id="CapDetahorariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{capDetahorariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_capDetahorariosPK_detahorarioid}" for="capDetahorariosPK_detahorarioid" />
+                        <p:inputText id="capDetahorariosPK_detahorarioid" value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.CreateCapDetahorariosTitle_capDetahorariosPK_detahorarioid}" required="true" requiredMessage="#{bundle.CreateCapDetahorariosRequiredMessage_capDetahorariosPK_detahorarioid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_horafin}" for="horafin" />
+                        <p:inputText id="horafin" value="#{capDetahorariosController.selected.horafin}" title="#{bundle.CreateCapDetahorariosTitle_horafin}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_horainicio}" for="horainicio" />
+                        <p:inputText id="horainicio" value="#{capDetahorariosController.selected.horainicio}" title="#{bundle.CreateCapDetahorariosTitle_horainicio}" />
+                        <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_diaid}" for="diaid" />
+                        <p:selectOneMenu id="diaid" value="#{capDetahorariosController.selected.diaid}" >
+                            <f:selectItems value="#{bioDiasController.itemsAvailableSelectOne}"
+                                           var="diaidItem"
+                                           itemValue="#{diaidItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_capCabhorarios}" for="capCabhorarios" />
+                        <p:selectOneMenu id="capCabhorarios" value="#{capDetahorariosController.selected.capCabhorarios}" required="true" requiredMessage="#{bundle.EditCapDetahorariosRequiredMessage_capCabhorarios}">
+                            <f:selectItems value="#{capCabhorariosController.itemsAvailableSelectOne}"
+                                           var="capCabhorariosItem"
+                                           itemValue="#{capCabhorariosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{capDetahorariosController.create}" value="#{bundle.Save}" update="display,:CapDetahorariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapDetahorariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetahorariosCreateDialog.hide()" immediate="true" />
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
