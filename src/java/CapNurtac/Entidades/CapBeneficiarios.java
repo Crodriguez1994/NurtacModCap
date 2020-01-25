@@ -210,7 +210,7 @@ public class CapBeneficiarios implements Serializable {
 
     @Override
     public String toString() {
-        return "CapNurtac.Entidades.CapBeneficiarios[ beneficiarioid=" + beneficiarioid + " ]";
+        return Integer.toString(this.beneficiarioid);
     }
     
 }

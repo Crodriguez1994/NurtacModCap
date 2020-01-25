@@ -7,13 +7,12 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
         <p:dialog id="CapBeneficiariosCreateDlg" widgetVar="CapBeneficiariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCapBeneficiariosTitle}">
             <h:form id="CapBeneficiariosCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capBeneficiariosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_beneficiarioid}" for="beneficiarioid" />
-                        <p:inputText id="beneficiarioid" value="#{capBeneficiariosController.selected.beneficiarioid}" title="#{bundle.CreateCapBeneficiariosTitle_beneficiarioid}" required="true" requiredMessage="#{bundle.CreateCapBeneficiariosRequiredMessage_beneficiarioid}"/>
+                        <p:inputText id="beneficiarioid" value="#{capBeneficiariosController.selected.beneficiarioid}" disabled="true" title="#{bundle.CreateCapBeneficiariosTitle_beneficiarioid}" required="true" requiredMessage="#{bundle.CreateCapBeneficiariosRequiredMessage_beneficiarioid}"/>
                         <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_apellidos}" for="apellidos" />
                         <p:inputText id="apellidos" value="#{capBeneficiariosController.selected.apellidos}" title="#{bundle.CreateCapBeneficiariosTitle_apellidos}" />
                         <p:outputLabel value="#{bundle.CreateCapBeneficiariosLabel_cedula}" for="cedula" />

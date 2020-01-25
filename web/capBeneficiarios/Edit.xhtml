@@ -29,7 +29,7 @@
                         <p:outputLabel value="#{bundle.EditCapBeneficiariosLabel_estado}" for="estado" />
                         <p:inputText id="estado" value="#{capBeneficiariosController.selected.estado}" title="#{bundle.EditCapBeneficiariosTitle_estado}" />
                         <p:outputLabel value="#{bundle.EditCapBeneficiariosLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capBeneficiariosController.selected.fecha}" title="#{bundle.EditCapBeneficiariosTitle_fecha}"  showOn="button"/>
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" disabled="true" value="#{capBeneficiariosController.selected.fecha}" title="#{bundle.EditCapBeneficiariosTitle_fecha}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditCapBeneficiariosLabel_nombres}" for="nombres" />
                         <p:inputText id="nombres" value="#{capBeneficiariosController.selected.nombres}" title="#{bundle.EditCapBeneficiariosTitle_nombres}" />
                     </p:panelGrid>
