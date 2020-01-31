@@ -14,6 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{capFacilitadoresController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_facilitadorid}"/>
                         <h:outputText value="#{capFacilitadoresController.selected.facilitadorid}" title="#{bundle.ViewCapFacilitadoresTitle_facilitadorid}"/>
+                                                <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_nombres}"/>
+                        <h:outputText value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.ViewCapFacilitadoresTitle_nombres}"/>
                         <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_apellidos}"/>
                         <h:outputText value="#{capFacilitadoresController.selected.apellidos}" title="#{bundle.ViewCapFacilitadoresTitle_apellidos}"/>
                         <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_cedula}"/>
@@ -32,8 +34,7 @@
                         <h:outputText value="#{capFacilitadoresController.selected.fechaingreso}" title="#{bundle.ViewCapFacilitadoresTitle_fechaingreso}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_nombres}"/>
-                        <h:outputText value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.ViewCapFacilitadoresTitle_nombres}"/>
+
                         <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_tipo}"/>
                         <h:outputText value="#{capFacilitadoresController.selected.tipo}" title="#{bundle.ViewCapFacilitadoresTitle_tipo}"/>
                         <h:outputText value="#{bundle.ViewCapFacilitadoresLabel_empleadoid}"/>

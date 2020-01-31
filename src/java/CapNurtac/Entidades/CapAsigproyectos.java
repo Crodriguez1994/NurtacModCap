@@ -61,6 +61,7 @@ public class CapAsigproyectos implements Serializable {
     @OneToMany(mappedBy = "asigproyectoid")
     private List<CapCabcapacitaciones> capCabcapacitacionesList;
 
+     public static int Id=0;
     public CapAsigproyectos() {
     }
 
@@ -69,6 +70,13 @@ public class CapAsigproyectos implements Serializable {
     }
 
     public Integer getAsigproyectoid() {
+        
+        if (asigproyectoid ==null){
+              Id =Id + 1;
+            asigproyectoid = Id;
+        }else{
+            Id = asigproyectoid;
+        }
         return asigproyectoid;
     }
 
@@ -77,6 +85,9 @@ public class CapAsigproyectos implements Serializable {
     }
 
     public String getEstado() {
+           if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -85,6 +96,9 @@ public class CapAsigproyectos implements Serializable {
     }
 
     public Date getFecha() {
+          if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

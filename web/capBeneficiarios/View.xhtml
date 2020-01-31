@@ -11,15 +11,9 @@
         <p:dialog id="CapBeneficiariosViewDlg" widgetVar="CapBeneficiariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCapBeneficiariosTitle}">
             <h:form id="CapBeneficiariosViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="4" style="border:0;" rendered="#{capBeneficiariosController.selected != null}">
-
+                    <p:panelGrid columns="2" rendered="#{capBeneficiariosController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_beneficiarioid}"/>
                         <h:outputText value="#{capBeneficiariosController.selected.beneficiarioid}" title="#{bundle.ViewCapBeneficiariosTitle_beneficiarioid}"/>
-                                                <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_estado}"/>
-                        <h:outputText value="#{capBeneficiariosController.selected.estado}" title="#{bundle.ViewCapBeneficiariosTitle_estado}"/>
-                    </p:panelGrid>
-                    <br></br>
-                    <p:panelGrid columns="4" rendered="#{capBeneficiariosController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_nombres}"/>
                         <h:outputText value="#{capBeneficiariosController.selected.nombres}" title="#{bundle.ViewCapBeneficiariosTitle_nombres}"/>
                         <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_apellidos}"/>
@@ -34,14 +28,15 @@
                         <h:outputText value="#{capBeneficiariosController.selected.direccion}" title="#{bundle.ViewCapBeneficiariosTitle_direccion}"/>
                         <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_email}"/>
                         <h:outputText value="#{capBeneficiariosController.selected.email}" title="#{bundle.ViewCapBeneficiariosTitle_email}"/>
-
+                        <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_estado}"/>
+                        <h:outputText value="#{capBeneficiariosController.selected.estado}" title="#{bundle.ViewCapBeneficiariosTitle_estado}"/>
                         <h:outputText value="#{bundle.ViewCapBeneficiariosLabel_fecha}"/>
                         <h:outputText value="#{capBeneficiariosController.selected.fecha}" title="#{bundle.ViewCapBeneficiariosTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
 
                     </p:panelGrid>
-                    <p:commandButton value="#{bundle.Close}" onclick="CapBeneficiariosViewDialog.hide()" immediate="true" />
+                    <p:commandButton value="#{bundle.Close}" onclick="CapBeneficiariosViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

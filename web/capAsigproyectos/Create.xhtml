@@ -13,11 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capAsigproyectosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_asigproyectoid}" for="asigproyectoid" />
-                        <p:inputText id="asigproyectoid" value="#{capAsigproyectosController.selected.asigproyectoid}" title="#{bundle.CreateCapAsigproyectosTitle_asigproyectoid}" required="true" requiredMessage="#{bundle.CreateCapAsigproyectosRequiredMessage_asigproyectoid}"/>
-                        <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capAsigproyectosController.selected.estado}" title="#{bundle.CreateCapAsigproyectosTitle_estado}" />
-                        <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capAsigproyectosController.selected.fecha}" title="#{bundle.EditCapAsigproyectosTitle_fecha}"  showOn="button"/>
+                        <p:inputText id="asigproyectoid" disabled="true" value="#{capAsigproyectosController.selected.asigproyectoid}" title="#{bundle.CreateCapAsigproyectosTitle_asigproyectoid}" required="true" requiredMessage="#{bundle.CreateCapAsigproyectosRequiredMessage_asigproyectoid}"/>
                         <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_coordinadorid}" for="coordinadorid" />
                         <p:selectOneMenu id="coordinadorid" value="#{capAsigproyectosController.selected.coordinadorid}" >
                             <f:selectItems value="#{capCoordinadoresController.itemsAvailableSelectOne}"
@@ -30,9 +26,15 @@
                                            var="proyectoidItem"
                                            itemValue="#{proyectoidItem}"/>
                         </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" disabled="true" value="#{capAsigproyectosController.selected.estado}" title="#{bundle.CreateCapAsigproyectosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapAsigproyectosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" disabled="true"  pattern="MM/dd/yyyy" value="#{capAsigproyectosController.selected.fecha}" title="#{bundle.EditCapAsigproyectosTitle_fecha}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capAsigproyectosController.create}" value="#{bundle.Save}" update="display,:CapAsigproyectosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapAsigproyectosCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapAsigproyectosCreateDialog.hide()" immediate="true" />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapAsigproyectosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

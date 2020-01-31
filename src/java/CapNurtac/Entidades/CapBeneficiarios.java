@@ -18,7 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -47,7 +46,7 @@ public class CapBeneficiarios implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
+    
     @Column(name = "beneficiarioid")
     private Integer beneficiarioid;
     @Size(max = 30)
@@ -83,6 +82,7 @@ public class CapBeneficiarios implements Serializable {
     @OneToMany(mappedBy = "beneficiarioid")
     private List<CapDetainscripciones> capDetainscripcionesList;
 
+    public static int Id=0;
     public CapBeneficiarios() {
     }
 
@@ -91,6 +91,14 @@ public class CapBeneficiarios implements Serializable {
     }
 
     public Integer getBeneficiarioid() {
+   
+        if (beneficiarioid ==null){
+              Id =Id + 1;
+            beneficiarioid = Id;
+        }else{
+            Id = beneficiarioid;
+        }
+        
         return beneficiarioid;
     }
 
@@ -147,6 +155,10 @@ public class CapBeneficiarios implements Serializable {
     }
 
     public String getEstado() {
+         if (estado==null){
+            estado = "A";
+        }
+         
         return estado;
     }
 
@@ -155,6 +167,10 @@ public class CapBeneficiarios implements Serializable {
     }
 
     public Date getFecha() {
+        
+        if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

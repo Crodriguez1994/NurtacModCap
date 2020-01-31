@@ -58,6 +58,7 @@ public class CapSectores implements Serializable {
     @OneToMany(mappedBy = "sectorid")
     private List<CapAsigproyectosector> capAsigproyectosectorList;
 
+    public static int Id=0;
     public CapSectores() {
     }
 
@@ -66,6 +67,12 @@ public class CapSectores implements Serializable {
     }
 
     public Integer getSectorid() {
+          if (sectorid==null){
+              Id =Id + 1;
+            sectorid = Id;
+        }else{
+            Id = sectorid;
+        }
         return sectorid;
     }
 
@@ -74,6 +81,10 @@ public class CapSectores implements Serializable {
     }
 
     public String getEstado() {
+          if (estado==null){
+            estado = "A";
+        }
+         
         return estado;
     }
 
@@ -82,6 +93,9 @@ public class CapSectores implements Serializable {
     }
 
     public Date getFecha() {
+        if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

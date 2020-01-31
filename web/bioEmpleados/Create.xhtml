@@ -36,7 +36,7 @@
                         <p:inputText id="telefono" value="#{bioEmpleadosController.selected.telefono}" title="#{bundle.CreateBioEmpleadosTitle_telefono}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{bioEmpleadosController.create}" value="#{bundle.Save}" update="display,:BioEmpleadosListForm:datalist,:growl" oncomplete="handleSubmit(args,'BioEmpleadosCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="BioEmpleadosCreateDialog.hide()" immediate="true"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BioEmpleadosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

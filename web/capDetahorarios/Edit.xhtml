@@ -13,11 +13,12 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capDetahorariosController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCapDetahorariosLabel_capDetahorariosPK_detahorarioid}" for="capDetahorariosPK_detahorarioid" />
-                        <p:inputText id="capDetahorariosPK_detahorarioid" value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.EditCapDetahorariosTitle_capDetahorariosPK_detahorarioid}" required="true" requiredMessage="#{bundle.EditCapDetahorariosRequiredMessage_capDetahorariosPK_detahorarioid}"/>
+                        <p:inputText id="capDetahorariosPK_detahorarioid" disabled="true" value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.EditCapDetahorariosTitle_capDetahorariosPK_detahorarioid}" required="true" requiredMessage="#{bundle.EditCapDetahorariosRequiredMessage_capDetahorariosPK_detahorarioid}"/>
+                                               <p:outputLabel value="#{bundle.EditCapDetahorariosLabel_horainicio}" for="horainicio" />
+                        <p:inputText id="horainicio" value="#{capDetahorariosController.selected.horainicio}" title="#{bundle.EditCapDetahorariosTitle_horainicio}" />
                         <p:outputLabel value="#{bundle.EditCapDetahorariosLabel_horafin}" for="horafin" />
                         <p:inputText id="horafin" value="#{capDetahorariosController.selected.horafin}" title="#{bundle.EditCapDetahorariosTitle_horafin}" />
-                        <p:outputLabel value="#{bundle.EditCapDetahorariosLabel_horainicio}" for="horainicio" />
-                        <p:inputText id="horainicio" value="#{capDetahorariosController.selected.horainicio}" title="#{bundle.EditCapDetahorariosTitle_horainicio}" />
+
                         <p:outputLabel value="#{bundle.EditCapDetahorariosLabel_diaid}" for="diaid" />
                         <p:selectOneMenu id="diaid" value="#{capDetahorariosController.selected.diaid}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

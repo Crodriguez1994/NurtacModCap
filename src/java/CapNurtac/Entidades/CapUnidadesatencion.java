@@ -64,6 +64,7 @@ public class CapUnidadesatencion implements Serializable {
     @ManyToOne
     private CapSectores sectorid;
 
+     public static int Id=0;
     public CapUnidadesatencion() {
     }
 
@@ -72,6 +73,12 @@ public class CapUnidadesatencion implements Serializable {
     }
 
     public Integer getUnidadid() {
+          if (unidadid ==null){
+              Id =Id + 1;
+            unidadid = Id;
+        }else{
+            Id = unidadid;
+        }
         return unidadid;
     }
 
@@ -80,6 +87,9 @@ public class CapUnidadesatencion implements Serializable {
     }
 
     public String getEstado() {
+        if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -88,6 +98,9 @@ public class CapUnidadesatencion implements Serializable {
     }
 
     public Date getFecha() {
+        if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

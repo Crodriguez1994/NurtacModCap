@@ -13,11 +13,12 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{bioDiasController.selected != null}">
                         <p:outputLabel value="#{bundle.EditBioDiasLabel_diaid}" for="diaid" />
-                        <p:inputText id="diaid" value="#{bioDiasController.selected.diaid}" title="#{bundle.EditBioDiasTitle_diaid}" required="true" requiredMessage="#{bundle.EditBioDiasRequiredMessage_diaid}"/>
+                        <p:inputText id="diaid" disabled="true" value="#{bioDiasController.selected.diaid}" title="#{bundle.EditBioDiasTitle_diaid}" required="true" requiredMessage="#{bundle.EditBioDiasRequiredMessage_diaid}"/>
+                      <p:outputLabel value="#{bundle.EditBioDiasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" type="text" value="#{bioDiasController.selected.nombre}" title="#{bundle.EditBioDiasTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditBioDiasLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{bioDiasController.selected.fecha}" title="#{bundle.EditBioDiasTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditBioDiasLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{bioDiasController.selected.nombre}" title="#{bundle.EditBioDiasTitle_nombre}" />
+                        <p:calendar id="fecha"  pattern="MM/dd/yyyy" value="#{bioDiasController.selected.fecha}" title="#{bundle.EditBioDiasTitle_fecha}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{bioDiasController.update}" value="#{bundle.Save}" update="display,:BioDiasListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BioDiasEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="BioDiasEditDialog.hide()"/>

@@ -90,6 +90,7 @@ public class CapCoordinadores implements Serializable {
     @ManyToOne
     private BioEmpleados empleadoid;
 
+    public static int Id=0;
     public CapCoordinadores() {
     }
 
@@ -98,6 +99,12 @@ public class CapCoordinadores implements Serializable {
     }
 
     public Integer getCoordinadorid() {
+         if (coordinadorid ==null){
+              Id =Id + 1;
+            coordinadorid = Id;
+        }else{
+            Id = coordinadorid;
+        }
         return coordinadorid;
     }
 
@@ -154,6 +161,9 @@ public class CapCoordinadores implements Serializable {
     }
 
     public String getEstado() {
+         if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -162,6 +172,10 @@ public class CapCoordinadores implements Serializable {
     }
 
     public Date getFechaingreso() {
+        
+        if(fechaingreso== null){
+            fechaingreso = new Date();
+        }
         return fechaingreso;
     }
 

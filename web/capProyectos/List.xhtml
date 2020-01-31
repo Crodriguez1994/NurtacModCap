@@ -33,7 +33,31 @@
                             </f:facet>
                             <h:outputText value="#{item.proyectoid}"/>
                         </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapProyectosTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+
                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapProyectosTitle_fechainicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechainicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapProyectosTitle_fechafin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechafin}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        
+                                               <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapProyectosTitle_estado}"/>
                             </f:facet>
@@ -47,29 +71,7 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapProyectosTitle_fechafin}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechafin}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapProyectosTitle_fechainicio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechainicio}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapProyectosTitle_nombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombre}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capProyectosController.prepareCreate}" update=":CapProyectosCreateForm" oncomplete="PF('CapProyectosCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapProyectosViewForm" oncomplete="PF('CapProyectosViewDialog').show()" disabled="#{empty capProyectosController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapProyectosEditForm" oncomplete="PF('CapProyectosEditDialog').show()" disabled="#{empty capProyectosController.selected}"/>

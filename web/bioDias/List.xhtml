@@ -33,6 +33,12 @@
                             </f:facet>
                             <h:outputText value="#{item.diaid}"/>
                         </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBioDiasTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBioDiasTitle_fecha}"/>
@@ -41,13 +47,8 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListBioDiasTitle_nombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombre}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                       
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{bioDiasController.prepareCreate}" update=":BioDiasCreateForm" oncomplete="PF('BioDiasCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":BioDiasViewForm" oncomplete="PF('BioDiasViewDialog').show()" disabled="#{empty bioDiasController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":BioDiasEditForm" oncomplete="PF('BioDiasEditDialog').show()" disabled="#{empty bioDiasController.selected}"/>

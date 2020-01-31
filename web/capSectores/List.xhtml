@@ -35,6 +35,12 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapSectoresTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapSectoresTitle_estado}"/>
                             </f:facet>
                             <h:outputText value="#{item.estado}"/>
@@ -47,13 +53,8 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapSectoresTitle_nombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombre}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                        
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capSectoresController.prepareCreate}" update=":CapSectoresCreateForm" oncomplete="PF('CapSectoresCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapSectoresViewForm" oncomplete="PF('CapSectoresViewDialog').show()" disabled="#{empty capSectoresController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapSectoresEditForm" oncomplete="PF('CapSectoresEditDialog').show()" disabled="#{empty capSectoresController.selected}"/>

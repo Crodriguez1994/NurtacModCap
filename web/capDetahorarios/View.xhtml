@@ -14,10 +14,11 @@
                     <p:panelGrid columns="2" rendered="#{capDetahorariosController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapDetahorariosLabel_capDetahorariosPK_detahorarioid}"/>
                         <h:outputText value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.ViewCapDetahorariosTitle_capDetahorariosPK_detahorarioid}"/>
+                                                <h:outputText value="#{bundle.ViewCapDetahorariosLabel_horainicio}"/>
+                        <h:outputText value="#{capDetahorariosController.selected.horainicio}" title="#{bundle.ViewCapDetahorariosTitle_horainicio}"/>
                         <h:outputText value="#{bundle.ViewCapDetahorariosLabel_horafin}"/>
                         <h:outputText value="#{capDetahorariosController.selected.horafin}" title="#{bundle.ViewCapDetahorariosTitle_horafin}"/>
-                        <h:outputText value="#{bundle.ViewCapDetahorariosLabel_horainicio}"/>
-                        <h:outputText value="#{capDetahorariosController.selected.horainicio}" title="#{bundle.ViewCapDetahorariosTitle_horainicio}"/>
+
                         <h:outputText value="#{bundle.ViewCapDetahorariosLabel_diaid}"/>
                         <h:outputText value="#{capDetahorariosController.selected.diaid}" title="#{bundle.ViewCapDetahorariosTitle_diaid}"/>
                         <h:outputText value="#{bundle.ViewCapDetahorariosLabel_capCabhorarios}"/>

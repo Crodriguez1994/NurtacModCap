@@ -56,6 +56,7 @@ public class CapEspecialidades implements Serializable {
     @OneToMany(mappedBy = "especialidadid")
     private List<CapFacilitadores> capFacilitadoresList;
 
+       public static int Id=0;
     public CapEspecialidades() {
     }
 
@@ -64,6 +65,13 @@ public class CapEspecialidades implements Serializable {
     }
 
     public Integer getEspecialidadid() {
+          if (especialidadid ==null){
+              Id =Id + 1;
+            especialidadid = Id;
+        }else{
+            Id = especialidadid;
+        }
+          
         return especialidadid;
     }
 
@@ -72,6 +80,9 @@ public class CapEspecialidades implements Serializable {
     }
 
     public String getEstado() {
+           if (estado==null){
+            estado = "A";
+           }
         return estado;
     }
 
@@ -80,6 +91,10 @@ public class CapEspecialidades implements Serializable {
     }
 
     public Date getFecha() {
+         if(fecha== null){
+            fecha = new Date();
+        }
+         
         return fecha;
     }
 

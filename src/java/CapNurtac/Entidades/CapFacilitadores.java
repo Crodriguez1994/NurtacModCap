@@ -5,6 +5,7 @@
  */
 package CapNurtac.Entidades;
 
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -93,6 +94,7 @@ public class CapFacilitadores implements Serializable {
     @OneToMany(mappedBy = "facilitadorid")
     private List<CapDetacapacitaciones> capDetacapacitacionesList;
 
+    public static int Id=0;
     public CapFacilitadores() {
     }
 
@@ -101,6 +103,12 @@ public class CapFacilitadores implements Serializable {
     }
 
     public Integer getFacilitadorid() {
+          if (facilitadorid ==null){
+              Id =Id + 1;
+            facilitadorid = Id;
+        }else{
+            Id = facilitadorid;
+        }
         return facilitadorid;
     }
 
@@ -157,6 +165,9 @@ public class CapFacilitadores implements Serializable {
     }
 
     public String getEstado() {
+          if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -165,6 +176,9 @@ public class CapFacilitadores implements Serializable {
     }
 
     public Date getFechaingreso() {
+           if(fechaingreso== null){
+            fechaingreso = new Date();
+        }
         return fechaingreso;
     }
 

@@ -14,6 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{capCoordinadoresController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_coordinadorid}"/>
                         <h:outputText value="#{capCoordinadoresController.selected.coordinadorid}" title="#{bundle.ViewCapCoordinadoresTitle_coordinadorid}"/>
+                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_nombres}"/>
+                        <h:outputText value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.ViewCapCoordinadoresTitle_nombres}"/>
                         <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_apellidos}"/>
                         <h:outputText value="#{capCoordinadoresController.selected.apellidos}" title="#{bundle.ViewCapCoordinadoresTitle_apellidos}"/>
                         <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_cedula}"/>
@@ -32,8 +34,6 @@
                         <h:outputText value="#{capCoordinadoresController.selected.fechaingreso}" title="#{bundle.ViewCapCoordinadoresTitle_fechaingreso}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_nombres}"/>
-                        <h:outputText value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.ViewCapCoordinadoresTitle_nombres}"/>
                         <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_tipo}"/>
                         <h:outputText value="#{capCoordinadoresController.selected.tipo}" title="#{bundle.ViewCapCoordinadoresTitle_tipo}"/>
                         <h:outputText value="#{bundle.ViewCapCoordinadoresLabel_empleadoid}"/>

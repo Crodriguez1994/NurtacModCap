@@ -35,16 +35,17 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapDetahorariosTitle_horafin}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.horafin}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapDetahorariosTitle_horainicio}"/>
                             </f:facet>
                             <h:outputText value="#{item.horainicio}"/>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapDetahorariosTitle_horafin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horafin}"/>
+                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapDetahorariosTitle_diaid}"/>
@@ -57,7 +58,7 @@
                             </f:facet>
                             <h:outputText value="#{item.capCabhorarios}"/>
                         </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capDetahorariosController.prepareCreate}" update=":CapDetahorariosCreateForm" oncomplete="PF('CapDetahorariosCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapDetahorariosViewForm" oncomplete="PF('CapDetahorariosViewDialog').show()" disabled="#{empty capDetahorariosController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapDetahorariosEditForm" oncomplete="PF('CapDetahorariosEditDialog').show()" disabled="#{empty capDetahorariosController.selected}"/>

@@ -13,7 +13,7 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capDetahorariosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_capDetahorariosPK_detahorarioid}" for="capDetahorariosPK_detahorarioid" />
-                        <p:inputText id="capDetahorariosPK_detahorarioid" value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.CreateCapDetahorariosTitle_capDetahorariosPK_detahorarioid}" required="true" requiredMessage="#{bundle.CreateCapDetahorariosRequiredMessage_capDetahorariosPK_detahorarioid}"/>
+                        <p:inputText id="capDetahorariosPK_detahorarioid" disabled="true"  value="#{capDetahorariosController.selected.capDetahorariosPK.detahorarioid}" title="#{bundle.CreateCapDetahorariosTitle_capDetahorariosPK_detahorarioid}" required="true" requiredMessage="#{bundle.CreateCapDetahorariosRequiredMessage_capDetahorariosPK_detahorarioid}"/>
                         <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_horafin}" for="horafin" />
                         <p:inputText id="horafin" value="#{capDetahorariosController.selected.horafin}" title="#{bundle.CreateCapDetahorariosTitle_horafin}" />
                         <p:outputLabel value="#{bundle.CreateCapDetahorariosLabel_horainicio}" for="horainicio" />
@@ -32,7 +32,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capDetahorariosController.create}" value="#{bundle.Save}" update="display,:CapDetahorariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapDetahorariosCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetahorariosCreateDialog.hide()" immediate="true" />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapDetahorariosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -13,20 +13,21 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capProyectosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapProyectosLabel_proyectoid}" for="proyectoid" />
-                        <p:inputText id="proyectoid" value="#{capProyectosController.selected.proyectoid}" title="#{bundle.CreateCapProyectosTitle_proyectoid}" required="true" requiredMessage="#{bundle.CreateCapProyectosRequiredMessage_proyectoid}"/>
-                        <p:outputLabel value="#{bundle.CreateCapProyectosLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capProyectosController.selected.estado}" title="#{bundle.CreateCapProyectosTitle_estado}" />
-                        <p:outputLabel value="#{bundle.CreateCapProyectosLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fecha}" title="#{bundle.EditCapProyectosTitle_fecha}"  showOn="button"/>
+                        <p:inputText id="proyectoid" disabled="true"  value="#{capProyectosController.selected.proyectoid}" title="#{bundle.CreateCapProyectosTitle_proyectoid}" required="true" requiredMessage="#{bundle.CreateCapProyectosRequiredMessage_proyectoid}"/>
+<p:outputLabel value="#{bundle.CreateCapProyectosLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" type="text" value="#{capProyectosController.selected.nombre}" title="#{bundle.CreateCapProyectosTitle_nombre}" />
+<p:outputLabel value="#{bundle.CreateCapProyectosLabel_fechainicio}" for="fechainicio" />
+                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fechainicio}" title="#{bundle.EditCapProyectosTitle_fechainicio}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateCapProyectosLabel_fechafin}" for="fechafin" />
                         <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fechafin}" title="#{bundle.EditCapProyectosTitle_fechafin}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCapProyectosLabel_fechainicio}" for="fechainicio" />
-                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fechainicio}" title="#{bundle.EditCapProyectosTitle_fechainicio}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCapProyectosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{capProyectosController.selected.nombre}" title="#{bundle.CreateCapProyectosTitle_nombre}" />
+                                                <p:outputLabel value="#{bundle.CreateCapProyectosLabel_estado}" for="estado" />
+                        <p:inputText id="estado" disabled="true" value="#{capProyectosController.selected.estado}" title="#{bundle.CreateCapProyectosTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapProyectosLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" disabled="true" pattern="MM/dd/yyyy" value="#{capProyectosController.selected.fecha}" title="#{bundle.EditCapProyectosTitle_fecha}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capProyectosController.create}" value="#{bundle.Save}" update="display,:CapProyectosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapProyectosCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapProyectosCreateDialog.hide()" immediate="true"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapProyectosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

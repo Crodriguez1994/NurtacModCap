@@ -53,6 +53,7 @@ public class BioDias implements Serializable {
     @OneToMany(mappedBy = "diaid")
     private List<CapDetahorarios> capDetahorariosList;
 
+     public static int Id=0;
     public BioDias() {
     }
 
@@ -61,6 +62,12 @@ public class BioDias implements Serializable {
     }
 
     public Integer getDiaid() {
+         if (diaid==null){
+              Id =Id + 1;
+            diaid = Id;
+        }else{
+            Id = diaid;
+        }
         return diaid;
     }
 

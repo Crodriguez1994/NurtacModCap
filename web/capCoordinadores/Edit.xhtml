@@ -13,27 +13,27 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capCoordinadoresController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_coordinadorid}" for="coordinadorid" />
-                        <p:inputText id="coordinadorid" value="#{capCoordinadoresController.selected.coordinadorid}" title="#{bundle.EditCapCoordinadoresTitle_coordinadorid}" required="true" requiredMessage="#{bundle.EditCapCoordinadoresRequiredMessage_coordinadorid}"/>
+                        <p:inputText id="coordinadorid" disabled="true" value="#{capCoordinadoresController.selected.coordinadorid}" title="#{bundle.EditCapCoordinadoresTitle_coordinadorid}" required="true" requiredMessage="#{bundle.EditCapCoordinadoresRequiredMessage_coordinadorid}"/>
+                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" type="text" value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.EditCapCoordinadoresTitle_nombres}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_apellidos}" for="apellidos" />
-                        <p:inputText id="apellidos" value="#{capCoordinadoresController.selected.apellidos}" title="#{bundle.EditCapCoordinadoresTitle_apellidos}" />
+                        <p:inputText id="apellidos" type="text" value="#{capCoordinadoresController.selected.apellidos}" title="#{bundle.EditCapCoordinadoresTitle_apellidos}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_cedula}" for="cedula" />
-                        <p:inputText id="cedula" value="#{capCoordinadoresController.selected.cedula}" title="#{bundle.EditCapCoordinadoresTitle_cedula}" />
+                        <p:inputText id="cedula" type="number" value="#{capCoordinadoresController.selected.cedula}" title="#{bundle.EditCapCoordinadoresTitle_cedula}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_celular}" for="celular" />
-                        <p:inputText id="celular" value="#{capCoordinadoresController.selected.celular}" title="#{bundle.EditCapCoordinadoresTitle_celular}" />
+                        <p:inputText id="celular" type="number" value="#{capCoordinadoresController.selected.celular}" title="#{bundle.EditCapCoordinadoresTitle_celular}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_convencional}" for="convencional" />
-                        <p:inputText id="convencional" value="#{capCoordinadoresController.selected.convencional}" title="#{bundle.EditCapCoordinadoresTitle_convencional}" />
+                        <p:inputText id="convencional" type="number" value="#{capCoordinadoresController.selected.convencional}" title="#{bundle.EditCapCoordinadoresTitle_convencional}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_direccion}" for="direccion" />
-                        <p:inputText id="direccion" value="#{capCoordinadoresController.selected.direccion}" title="#{bundle.EditCapCoordinadoresTitle_direccion}" />
+                        <p:inputText id="direccion"  value="#{capCoordinadoresController.selected.direccion}" title="#{bundle.EditCapCoordinadoresTitle_direccion}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_email}" for="email" />
                         <p:inputText id="email" value="#{capCoordinadoresController.selected.email}" title="#{bundle.EditCapCoordinadoresTitle_email}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capCoordinadoresController.selected.estado}" title="#{bundle.EditCapCoordinadoresTitle_estado}" />
+                        <p:inputText id="estado" type="text" value="#{capCoordinadoresController.selected.estado}" title="#{bundle.EditCapCoordinadoresTitle_estado}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_fechaingreso}" for="fechaingreso" />
-                        <p:calendar id="fechaingreso" pattern="MM/dd/yyyy" value="#{capCoordinadoresController.selected.fechaingreso}" title="#{bundle.EditCapCoordinadoresTitle_fechaingreso}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_nombres}" for="nombres" />
-                        <p:inputText id="nombres" value="#{capCoordinadoresController.selected.nombres}" title="#{bundle.EditCapCoordinadoresTitle_nombres}" />
+                        <p:calendar id="fechaingreso" disabled="true" pattern="MM/dd/yyyy" value="#{capCoordinadoresController.selected.fechaingreso}" title="#{bundle.EditCapCoordinadoresTitle_fechaingreso}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_tipo}" for="tipo" />
-                        <p:inputText id="tipo" value="#{capCoordinadoresController.selected.tipo}" title="#{bundle.EditCapCoordinadoresTitle_tipo}" />
+                        <p:inputText id="tipo" type="text" value="#{capCoordinadoresController.selected.tipo}" title="#{bundle.EditCapCoordinadoresTitle_tipo}" />
                         <p:outputLabel value="#{bundle.EditCapCoordinadoresLabel_empleadoid}" for="empleadoid" />
                         <p:selectOneMenu id="empleadoid" value="#{capCoordinadoresController.selected.empleadoid}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

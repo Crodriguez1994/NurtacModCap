@@ -14,16 +14,17 @@
                     <p:panelGrid columns="2" rendered="#{capAsigproyectosController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_asigproyectoid}"/>
                         <h:outputText value="#{capAsigproyectosController.selected.asigproyectoid}" title="#{bundle.ViewCapAsigproyectosTitle_asigproyectoid}"/>
+                                                <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_coordinadorid}"/>
+                        <h:outputText value="#{capAsigproyectosController.selected.coordinadorid}" title="#{bundle.ViewCapAsigproyectosTitle_coordinadorid}"/>
+                        <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_proyectoid}"/>
+                        <h:outputText value="#{capAsigproyectosController.selected.proyectoid}" title="#{bundle.ViewCapAsigproyectosTitle_proyectoid}"/>
+
                         <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_estado}"/>
                         <h:outputText value="#{capAsigproyectosController.selected.estado}" title="#{bundle.ViewCapAsigproyectosTitle_estado}"/>
                         <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_fecha}"/>
                         <h:outputText value="#{capAsigproyectosController.selected.fecha}" title="#{bundle.ViewCapAsigproyectosTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_coordinadorid}"/>
-                        <h:outputText value="#{capAsigproyectosController.selected.coordinadorid}" title="#{bundle.ViewCapAsigproyectosTitle_coordinadorid}"/>
-                        <h:outputText value="#{bundle.ViewCapAsigproyectosLabel_proyectoid}"/>
-                        <h:outputText value="#{capAsigproyectosController.selected.proyectoid}" title="#{bundle.ViewCapAsigproyectosTitle_proyectoid}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CapAsigproyectosViewDialog.hide()"/>
                 </h:panelGroup>

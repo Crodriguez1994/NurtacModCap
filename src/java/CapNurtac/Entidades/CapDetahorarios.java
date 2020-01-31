@@ -48,6 +48,7 @@ public class CapDetahorarios implements Serializable {
     @ManyToOne(optional = false)
     private CapCabhorarios capCabhorarios;
 
+ public static int Id=0;
     public CapDetahorarios() {
     }
 
@@ -56,10 +57,21 @@ public class CapDetahorarios implements Serializable {
     }
 
     public CapDetahorarios(int cabhorarioid, int detahorarioid) {
+       
+     
         this.capDetahorariosPK = new CapDetahorariosPK(cabhorarioid, detahorarioid);
     }
 
     public CapDetahorariosPK getCapDetahorariosPK() {
+        
+           if(capDetahorariosPK.getDetahorarioid()==0){
+              Id =Id + 1;
+            capDetahorariosPK.setDetahorarioid(Id);
+        }
+        else{           
+            Id = capDetahorariosPK.getDetahorarioid();
+           }
+
         return capDetahorariosPK;
     }
 

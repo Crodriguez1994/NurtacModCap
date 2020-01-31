@@ -60,6 +60,7 @@ public class CapCabhorarios implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "capCabhorarios")
     private List<CapDetahorarios> capDetahorariosList;
 
+    public static int Id=0;
     public CapCabhorarios() {
     }
 
@@ -68,6 +69,13 @@ public class CapCabhorarios implements Serializable {
     }
 
     public Integer getCabhorarioid() {
+        
+         if (cabhorarioid ==null){
+              Id =Id + 1;
+            cabhorarioid = Id;
+        }else{
+            Id = cabhorarioid;
+        }
         return cabhorarioid;
     }
 
@@ -76,6 +84,9 @@ public class CapCabhorarios implements Serializable {
     }
 
     public String getEstado() {
+          if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -84,6 +95,10 @@ public class CapCabhorarios implements Serializable {
     }
 
     public Date getFecha() {
+         
+           if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

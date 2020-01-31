@@ -14,22 +14,26 @@
                     <p:panelGrid columns="2" rendered="#{capProyectosController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapProyectosLabel_proyectoid}"/>
                         <h:outputText value="#{capProyectosController.selected.proyectoid}" title="#{bundle.ViewCapProyectosTitle_proyectoid}"/>
+                                               <h:outputText value="#{bundle.ViewCapProyectosLabel_nombre}"/>
+                        <h:outputText value="#{capProyectosController.selected.nombre}" title="#{bundle.ViewCapProyectosTitle_nombre}"/>
+
+                          <h:outputText value="#{bundle.ViewCapProyectosLabel_fechainicio}"/>
+                        <h:outputText value="#{capProyectosController.selected.fechainicio}" title="#{bundle.ViewCapProyectosTitle_fechainicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                          
+                        <h:outputText value="#{bundle.ViewCapProyectosLabel_fechafin}"/>
+                        <h:outputText value="#{capProyectosController.selected.fechafin}" title="#{bundle.ViewCapProyectosTitle_fechafin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                      
+                        
                         <h:outputText value="#{bundle.ViewCapProyectosLabel_estado}"/>
                         <h:outputText value="#{capProyectosController.selected.estado}" title="#{bundle.ViewCapProyectosTitle_estado}"/>
                         <h:outputText value="#{bundle.ViewCapProyectosLabel_fecha}"/>
                         <h:outputText value="#{capProyectosController.selected.fecha}" title="#{bundle.ViewCapProyectosTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapProyectosLabel_fechafin}"/>
-                        <h:outputText value="#{capProyectosController.selected.fechafin}" title="#{bundle.ViewCapProyectosTitle_fechafin}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapProyectosLabel_fechainicio}"/>
-                        <h:outputText value="#{capProyectosController.selected.fechainicio}" title="#{bundle.ViewCapProyectosTitle_fechainicio}">
-                            <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapProyectosLabel_nombre}"/>
-                        <h:outputText value="#{capProyectosController.selected.nombre}" title="#{bundle.ViewCapProyectosTitle_nombre}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CapProyectosViewDialog.hide()"/>
                 </h:panelGroup>

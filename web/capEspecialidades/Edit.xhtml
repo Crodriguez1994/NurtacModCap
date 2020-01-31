@@ -13,13 +13,13 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capEspecialidadesController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_especialidadid}" for="especialidadid" />
-                        <p:inputText id="especialidadid" value="#{capEspecialidadesController.selected.especialidadid}" title="#{bundle.EditCapEspecialidadesTitle_especialidadid}" required="true" requiredMessage="#{bundle.EditCapEspecialidadesRequiredMessage_especialidadid}"/>
-                        <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capEspecialidadesController.selected.estado}" title="#{bundle.EditCapEspecialidadesTitle_estado}" />
-                        <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capEspecialidadesController.selected.fecha}" title="#{bundle.EditCapEspecialidadesTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_nombre}" for="nombre" />
+                        <p:inputText id="especialidadid" disabled="true" value="#{capEspecialidadesController.selected.especialidadid}" title="#{bundle.EditCapEspecialidadesTitle_especialidadid}" required="true" requiredMessage="#{bundle.EditCapEspecialidadesRequiredMessage_especialidadid}"/>
+                                                <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{capEspecialidadesController.selected.nombre}" title="#{bundle.EditCapEspecialidadesTitle_nombre}" />
+                        <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_estado}" for="estado" />
+                        <p:inputText id="estado" type="text" maxlength="1" value="#{capEspecialidadesController.selected.estado}" title="#{bundle.EditCapEspecialidadesTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapEspecialidadesLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" disabled="true" pattern="MM/dd/yyyy" value="#{capEspecialidadesController.selected.fecha}" title="#{bundle.EditCapEspecialidadesTitle_fecha}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capEspecialidadesController.update}" value="#{bundle.Save}" update="display,:CapEspecialidadesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapEspecialidadesEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CapEspecialidadesEditDialog.hide()"/>

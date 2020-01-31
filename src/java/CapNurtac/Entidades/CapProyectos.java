@@ -69,6 +69,7 @@ public class CapProyectos implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "capProyectos")
     private List<CapAsigproyectosector> capAsigproyectosectorList;
 
+    public static int Id=0;
     public CapProyectos() {
     }
 
@@ -77,6 +78,13 @@ public class CapProyectos implements Serializable {
     }
 
     public Integer getProyectoid() {
+        
+        if (proyectoid ==null){
+              Id =Id + 1;
+            proyectoid = Id;
+        }else{
+            Id = proyectoid;
+        }
         return proyectoid;
     }
 
@@ -85,6 +93,9 @@ public class CapProyectos implements Serializable {
     }
 
     public String getEstado() {
+         if (estado==null){
+            estado = "A";
+        }
         return estado;
     }
 
@@ -93,6 +104,9 @@ public class CapProyectos implements Serializable {
     }
 
     public Date getFecha() {
+        if(fecha== null){
+            fecha = new Date();
+        }
         return fecha;
     }
 

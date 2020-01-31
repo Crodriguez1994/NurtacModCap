@@ -13,16 +13,17 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capCabhorariosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapCabhorariosLabel_cabhorarioid}" for="cabhorarioid" />
-                        <p:inputText id="cabhorarioid" value="#{capCabhorariosController.selected.cabhorarioid}" title="#{bundle.CreateCapCabhorariosTitle_cabhorarioid}" required="true" requiredMessage="#{bundle.CreateCapCabhorariosRequiredMessage_cabhorarioid}"/>
+                        <p:inputText id="cabhorarioid" disabled="true" value="#{capCabhorariosController.selected.cabhorarioid}" title="#{bundle.CreateCapCabhorariosTitle_cabhorarioid}" required="true" requiredMessage="#{bundle.CreateCapCabhorariosRequiredMessage_cabhorarioid}"/>
+                     <p:outputLabel value="#{bundle.CreateCapCabhorariosLabel_nombre}" for="nombre" />
+                     <p:inputText id="nombre" type="text" value="#{capCabhorariosController.selected.nombre}" title="#{bundle.CreateCapCabhorariosTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateCapCabhorariosLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capCabhorariosController.selected.estado}" title="#{bundle.CreateCapCabhorariosTitle_estado}" />
+                        <p:inputText id="estado" disabled="true" value="#{capCabhorariosController.selected.estado}" title="#{bundle.CreateCapCabhorariosTitle_estado}" />
                         <p:outputLabel value="#{bundle.CreateCapCabhorariosLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capCabhorariosController.selected.fecha}" title="#{bundle.EditCapCabhorariosTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCapCabhorariosLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{capCabhorariosController.selected.nombre}" title="#{bundle.CreateCapCabhorariosTitle_nombre}" />
+                        <p:calendar id="fecha" disabled="true" pattern="MM/dd/yyyy" value="#{capCabhorariosController.selected.fecha}" title="#{bundle.EditCapCabhorariosTitle_fecha}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capCabhorariosController.create}" value="#{bundle.Save}" update="display,:CapCabhorariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapCabhorariosCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabhorariosCreateDialog.hide()" immediate="true" />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapCabhorariosCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

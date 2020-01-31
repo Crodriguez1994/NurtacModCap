@@ -13,14 +13,15 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{bioDiasController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateBioDiasLabel_diaid}" for="diaid" />
-                        <p:inputText id="diaid" value="#{bioDiasController.selected.diaid}" title="#{bundle.CreateBioDiasTitle_diaid}" required="true" requiredMessage="#{bundle.CreateBioDiasRequiredMessage_diaid}"/>
+                        <p:inputText id="diaid" disabled="true" value="#{bioDiasController.selected.diaid}" title="#{bundle.CreateBioDiasTitle_diaid}" required="true" requiredMessage="#{bundle.CreateBioDiasRequiredMessage_diaid}"/>
+                                                <p:outputLabel value="#{bundle.CreateBioDiasLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{bioDiasController.selected.nombre}" title="#{bundle.CreateBioDiasTitle_nombre}" />
+
                         <p:outputLabel value="#{bundle.CreateBioDiasLabel_fecha}" for="fecha" />
                         <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{bioDiasController.selected.fecha}" title="#{bundle.EditBioDiasTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateBioDiasLabel_nombre}" for="nombre" />
-                        <p:inputText id="nombre" value="#{bioDiasController.selected.nombre}" title="#{bundle.CreateBioDiasTitle_nombre}" />
-                    </p:panelGrid>
+                   </p:panelGrid>
                     <p:commandButton actionListener="#{bioDiasController.create}" value="#{bundle.Save}" update="display,:BioDiasListForm:datalist,:growl" oncomplete="handleSubmit(args,'BioDiasCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="BioDiasCreateDialog.hide()" immediate="true" />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="BioDiasCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

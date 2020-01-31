@@ -33,6 +33,12 @@
                             </f:facet>
                             <h:outputText value="#{item.cabhorarioid}"/>
                         </p:column>
+                          <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapCabhorariosTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapCabhorariosTitle_estado}"/>
@@ -47,14 +53,9 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapCabhorariosTitle_nombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombre}"/>
-                        </p:column>
-                        <f:facet name="footer">
-                            <p:commandButton id="createButton" styleClass="button"   icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capCabhorariosController.prepareCreate}" update=":CapCabhorariosCreateForm" oncomplete="PF('CapCabhorariosCreateDialog').show()"/>
+                      
+                        <f:facet name="header">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capCabhorariosController.prepareCreate}" update=":CapCabhorariosCreateForm" oncomplete="PF('CapCabhorariosCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapCabhorariosViewForm" oncomplete="PF('CapCabhorariosViewDialog').show()" disabled="#{empty capCabhorariosController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapCabhorariosEditForm" oncomplete="PF('CapCabhorariosEditDialog').show()" disabled="#{empty capCabhorariosController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{capCabhorariosController.destroy}" update=":growl,datalist" disabled="#{empty capCabhorariosController.selected}"/>

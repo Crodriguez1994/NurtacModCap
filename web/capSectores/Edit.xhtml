@@ -13,14 +13,14 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capSectoresController.selected != null}">
                         <p:outputLabel value="#{bundle.EditCapSectoresLabel_sectorid}" for="sectorid" />
-                        <p:inputText id="sectorid" value="#{capSectoresController.selected.sectorid}" title="#{bundle.EditCapSectoresTitle_sectorid}" required="true" requiredMessage="#{bundle.EditCapSectoresRequiredMessage_sectorid}"/>
-                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capSectoresController.selected.estado}" title="#{bundle.EditCapSectoresTitle_estado}" />
-                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capSectoresController.selected.fecha}" title="#{bundle.EditCapSectoresTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_nombre}" for="nombre" />
+                        <p:inputText id="sectorid" disabled="true" value="#{capSectoresController.selected.sectorid}" title="#{bundle.EditCapSectoresTitle_sectorid}" required="true" requiredMessage="#{bundle.EditCapSectoresRequiredMessage_sectorid}"/>
+                                  <p:outputLabel value="#{bundle.EditCapSectoresLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{capSectoresController.selected.nombre}" title="#{bundle.EditCapSectoresTitle_nombre}" />
-                    </p:panelGrid>
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_estado}" for="estado" />
+                        <p:inputText id="estado" maxlength="1" type="text" value="#{capSectoresController.selected.estado}" title="#{bundle.EditCapSectoresTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditCapSectoresLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" disabled="true" value="#{capSectoresController.selected.fecha}" title="#{bundle.EditCapSectoresTitle_fecha}"  showOn="button"/>
+                                  </p:panelGrid>
                     <p:commandButton actionListener="#{capSectoresController.update}" value="#{bundle.Save}" update="display,:CapSectoresListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CapSectoresEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CapSectoresEditDialog.hide()"/>
                 </h:panelGroup>

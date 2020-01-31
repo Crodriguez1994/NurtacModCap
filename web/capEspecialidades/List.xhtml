@@ -27,11 +27,18 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapEspecialidadesTitle_especialidadid}"/>
                             </f:facet>
                             <h:outputText value="#{item.especialidadid}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapEspecialidadesTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -47,13 +54,8 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapEspecialidadesTitle_nombre}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombre}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                        
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capEspecialidadesController.prepareCreate}" update=":CapEspecialidadesCreateForm" oncomplete="PF('CapEspecialidadesCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapEspecialidadesViewForm" oncomplete="PF('CapEspecialidadesViewDialog').show()" disabled="#{empty capEspecialidadesController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapEspecialidadesEditForm" oncomplete="PF('CapEspecialidadesEditDialog').show()" disabled="#{empty capEspecialidadesController.selected}"/>

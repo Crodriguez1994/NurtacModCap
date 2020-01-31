@@ -13,25 +13,26 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capFacilitadoresController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_facilitadorid}" for="facilitadorid" />
-                        <p:inputText id="facilitadorid" value="#{capFacilitadoresController.selected.facilitadorid}" title="#{bundle.CreateCapFacilitadoresTitle_facilitadorid}" required="true" requiredMessage="#{bundle.CreateCapFacilitadoresRequiredMessage_facilitadorid}"/>
+                        <p:inputText id="facilitadorid" disabled="true" value="#{capFacilitadoresController.selected.facilitadorid}" title="#{bundle.CreateCapFacilitadoresTitle_facilitadorid}" required="true" requiredMessage="#{bundle.CreateCapFacilitadoresRequiredMessage_facilitadorid}"/>
+                        <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" type="text" value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.CreateCapFacilitadoresTitle_nombres}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_apellidos}" for="apellidos" />
-                        <p:inputText id="apellidos" value="#{capFacilitadoresController.selected.apellidos}" title="#{bundle.CreateCapFacilitadoresTitle_apellidos}" />
+                        <p:inputText id="apellidos" type="text" value="#{capFacilitadoresController.selected.apellidos}" title="#{bundle.CreateCapFacilitadoresTitle_apellidos}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_cedula}" for="cedula" />
-                        <p:inputText id="cedula" value="#{capFacilitadoresController.selected.cedula}" title="#{bundle.CreateCapFacilitadoresTitle_cedula}" />
+                        <p:inputText id="cedula" type="number" value="#{capFacilitadoresController.selected.cedula}" title="#{bundle.CreateCapFacilitadoresTitle_cedula}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_celular}" for="celular" />
-                        <p:inputText id="celular" value="#{capFacilitadoresController.selected.celular}" title="#{bundle.CreateCapFacilitadoresTitle_celular}" />
+                        <p:inputText id="celular" type="number" value="#{capFacilitadoresController.selected.celular}" title="#{bundle.CreateCapFacilitadoresTitle_celular}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_convencional}" for="convencional" />
-                        <p:inputText id="convencional" value="#{capFacilitadoresController.selected.convencional}" title="#{bundle.CreateCapFacilitadoresTitle_convencional}" />
+                        <p:inputText id="convencional" type="number" value="#{capFacilitadoresController.selected.convencional}" title="#{bundle.CreateCapFacilitadoresTitle_convencional}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{capFacilitadoresController.selected.direccion}" title="#{bundle.CreateCapFacilitadoresTitle_direccion}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_email}" for="email" />
                         <p:inputText id="email" value="#{capFacilitadoresController.selected.email}" title="#{bundle.CreateCapFacilitadoresTitle_email}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capFacilitadoresController.selected.estado}" title="#{bundle.CreateCapFacilitadoresTitle_estado}" />
+                        <p:inputText id="estado" disabled="true" value="#{capFacilitadoresController.selected.estado}" title="#{bundle.CreateCapFacilitadoresTitle_estado}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_fechaingreso}" for="fechaingreso" />
-                        <p:calendar id="fechaingreso" pattern="MM/dd/yyyy" value="#{capFacilitadoresController.selected.fechaingreso}" title="#{bundle.EditCapFacilitadoresTitle_fechaingreso}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_nombres}" for="nombres" />
-                        <p:inputText id="nombres" value="#{capFacilitadoresController.selected.nombres}" title="#{bundle.CreateCapFacilitadoresTitle_nombres}" />
+                        <p:calendar id="fechaingreso" disabled="true" pattern="MM/dd/yyyy" value="#{capFacilitadoresController.selected.fechaingreso}" title="#{bundle.EditCapFacilitadoresTitle_fechaingreso}"  showOn="button"/>
+
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_tipo}" for="tipo" />
                         <p:inputText id="tipo" value="#{capFacilitadoresController.selected.tipo}" title="#{bundle.CreateCapFacilitadoresTitle_tipo}" />
                         <p:outputLabel value="#{bundle.CreateCapFacilitadoresLabel_empleadoid}" for="empleadoid" />
@@ -48,7 +49,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capFacilitadoresController.create}" value="#{bundle.Save}" update="display,:CapFacilitadoresListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapFacilitadoresCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapFacilitadoresCreateDialog.hide()" immediate="true"  />
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapFacilitadoresCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

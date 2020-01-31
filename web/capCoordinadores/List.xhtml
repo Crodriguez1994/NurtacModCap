@@ -33,6 +33,12 @@
                             </f:facet>
                             <h:outputText value="#{item.coordinadorid}"/>
                         </p:column>
+                            <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapCoordinadoresTitle_nombres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombres}"/>
+                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapCoordinadoresTitle_apellidos}"/>
@@ -83,12 +89,7 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapCoordinadoresTitle_nombres}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nombres}"/>
-                        </p:column>
+                    
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapCoordinadoresTitle_tipo}"/>
@@ -101,7 +102,7 @@
                             </f:facet>
                             <h:outputText value="#{item.empleadoid}"/>
                         </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capCoordinadoresController.prepareCreate}" update=":CapCoordinadoresCreateForm" oncomplete="PF('CapCoordinadoresCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapCoordinadoresViewForm" oncomplete="PF('CapCoordinadoresViewDialog').show()" disabled="#{empty capCoordinadoresController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapCoordinadoresEditForm" oncomplete="PF('CapCoordinadoresEditDialog').show()" disabled="#{empty capCoordinadoresController.selected}"/>

@@ -33,6 +33,19 @@
                             </f:facet>
                             <h:outputText value="#{item.asigproyectoid}"/>
                         </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapAsigproyectosTitle_coordinadorid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.coordinadorid}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCapAsigproyectosTitle_proyectoid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.proyectoid}"/>
+                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCapAsigproyectosTitle_estado}"/>
@@ -47,19 +60,7 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapAsigproyectosTitle_coordinadorid}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.coordinadorid}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCapAsigproyectosTitle_proyectoid}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.proyectoid}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                        <f:facet name="header">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{capAsigproyectosController.prepareCreate}" update=":CapAsigproyectosCreateForm" oncomplete="PF('CapAsigproyectosCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CapAsigproyectosViewForm" oncomplete="PF('CapAsigproyectosViewDialog').show()" disabled="#{empty capAsigproyectosController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CapAsigproyectosEditForm" oncomplete="PF('CapAsigproyectosEditDialog').show()" disabled="#{empty capAsigproyectosController.selected}"/>

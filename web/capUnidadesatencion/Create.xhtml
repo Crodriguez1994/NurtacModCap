@@ -13,12 +13,8 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{capUnidadesatencionController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_unidadid}" for="unidadid" />
-                        <p:inputText id="unidadid" value="#{capUnidadesatencionController.selected.unidadid}" title="#{bundle.CreateCapUnidadesatencionTitle_unidadid}" required="true" requiredMessage="#{bundle.CreateCapUnidadesatencionRequiredMessage_unidadid}"/>
-                        <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{capUnidadesatencionController.selected.estado}" title="#{bundle.CreateCapUnidadesatencionTitle_estado}" />
-                        <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_fecha}" for="fecha" />
-                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{capUnidadesatencionController.selected.fecha}" title="#{bundle.EditCapUnidadesatencionTitle_fecha}"  showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_nombre}" for="nombre" />
+                        <p:inputText id="unidadid" disabled="true" value="#{capUnidadesatencionController.selected.unidadid}" title="#{bundle.CreateCapUnidadesatencionTitle_unidadid}" required="true" requiredMessage="#{bundle.CreateCapUnidadesatencionRequiredMessage_unidadid}"/>
+<p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{capUnidadesatencionController.selected.nombre}" title="#{bundle.CreateCapUnidadesatencionTitle_nombre}" />
                         <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_proyectoid}" for="proyectoid" />
                         <p:selectOneMenu id="proyectoid" value="#{capUnidadesatencionController.selected.proyectoid}" >
@@ -32,9 +28,14 @@
                                            var="sectoridItem"
                                            itemValue="#{sectoridItem}"/>
                         </p:selectOneMenu>
+                                                <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_estado}" for="estado" />
+                        <p:inputText id="estado" disabled="true" value="#{capUnidadesatencionController.selected.estado}" title="#{bundle.CreateCapUnidadesatencionTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCapUnidadesatencionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" disabled="true" pattern="MM/dd/yyyy" value="#{capUnidadesatencionController.selected.fecha}" title="#{bundle.EditCapUnidadesatencionTitle_fecha}"  showOn="button"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{capUnidadesatencionController.create}" value="#{bundle.Save}" update="display,:CapUnidadesatencionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CapUnidadesatencionCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CapUnidadesatencionCreateDialog.hide()" immediate="true"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CapUnidadesatencionCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

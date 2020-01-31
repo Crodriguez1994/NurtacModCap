@@ -14,14 +14,15 @@
                     <p:panelGrid columns="2" rendered="#{capSectoresController.selected != null}">
                         <h:outputText value="#{bundle.ViewCapSectoresLabel_sectorid}"/>
                         <h:outputText value="#{capSectoresController.selected.sectorid}" title="#{bundle.ViewCapSectoresTitle_sectorid}"/>
+                                                <h:outputText value="#{bundle.ViewCapSectoresLabel_nombre}"/>
+                        <h:outputText value="#{capSectoresController.selected.nombre}" title="#{bundle.ViewCapSectoresTitle_nombre}"/>
+
                         <h:outputText value="#{bundle.ViewCapSectoresLabel_estado}"/>
                         <h:outputText value="#{capSectoresController.selected.estado}" title="#{bundle.ViewCapSectoresTitle_estado}"/>
                         <h:outputText value="#{bundle.ViewCapSectoresLabel_fecha}"/>
                         <h:outputText value="#{capSectoresController.selected.fecha}" title="#{bundle.ViewCapSectoresTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
-                        <h:outputText value="#{bundle.ViewCapSectoresLabel_nombre}"/>
-                        <h:outputText value="#{capSectoresController.selected.nombre}" title="#{bundle.ViewCapSectoresTitle_nombre}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CapSectoresViewDialog.hide()"/>
                 </h:panelGroup>
